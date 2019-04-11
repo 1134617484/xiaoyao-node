@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第六天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 时钟案例    4 <br>
+1.4 按钮不可用   6 <br>
+1.5 this    7 <br>
+1.6 定时器之  setTimeout()  7 <br>
+1.6.1 深层次的看待定时器区别   8 <br>
+1.7 5秒钟自动跳转页面   8 <br>
+1.7.1 arguments 对象  10 <br>
+1.8 运算符 10 <br>
+1.8.1 运算符顺序 11 <br>
+1.8.2 几个面试题 11 <br>
+1.9 字符串对象常用方法   13 <br>
+1.9.1 转换为字符串    13 <br>
+1.9.2 获取字符位置方法  13 <br>
+1.1 <br>
+1.2 <br>
+复习</p>
+
+<ol start="1"><li rel="1">节点        网页是有很多的节点组成的  。 <br>
+元素节点   指的是 ：  标签     li  span <br>
+文本节点      属性节点 <br>
+父子兄弟    父    parentNode        nextSibling <br>
+孩子    childNodes        nodeType == 1  来判断 是否是 元素节点 <br>
+<ul>
+  <li> <br>
+最喜欢用的  children    只得到   元素节点 <br>
+1.获取节点属性    getAttribute（“title”） <br>
+2.设置节点属性    setAttribute (“class”,”one”) <br>
+3.删除节点属性    removeAttribute(“title”)； <br>
+<ol>
+<li rel="4">日期函数   Date(); <br>
+声明:  var  date = new Date(); <br>
+使用:  得到现在的年分    date.getFullYear(); <br>
+    月份:  date.getMonth(); <br>
+    日子;  date.getDate(); <br>
+    星期：  date.getDay();  </li></ol></li>
+<li rel="5">定时器  <br>
+  定时器  不需要人工操作   按照一定的时间进行某种动作。 <br>
+ setInterval(“函数”,间隔时间 )   每隔 n秒去执行一次函数  <br>
+1.3  时钟案例</li>
+</ul></li></ol>
+
+<p>分两步进行的。  <br>
+第一步：  要得到现在的 时 分 秒 <br>
+但是这里面有一个小玄机 。 <br>
+  比如现在是 9点整      时针指向 9 是没错的 <br>
+但是如果现在是 9点半   时针应该指向的是 9到10 之间 才对 <br>
+所以，我们不但要得到现在的小时 ，还要得到 已经过去了多少分  <br>
+ms = date.getMilliseconds(); // 现在的毫秒数 <br>
+s = date.getSeconds() + ms / 1000;  //  得到秒 1.3 s <br>
+m = date.getMinutes() + s / 60;  //  得到的是分数  45.6分钟 <br>
+h = date.getHours() % 12 + m / 60 ;</p>
+
+<p>旋转角度原理  <br>
+  秒针     一秒 走多少度呢 ？ <br>
+  一圈  360 °     一共有 60 秒       每秒  6 ° <br>
+分针     一圈  360    一圈走 60次   每次  6°  每分钟 6° <br>
+时针     一圈 360      一共 12 个 表盘没有24小时    每个小时 走   30° <br>
+ 完整代码： <br>
+1    <br>
+2    var hour = document.getElementById("hour"); <br>
+3    var minute = document.getElementById("minute"); <br>
+4    var second = document.getElementById("second"); <br>
+5      // 开始定时器 <br>
+6     var s = 0,m = 0, h = 0, ms = 0; <br>
+7      setInterval(function() { <br>
+8            // 内容就可以了 <br>
+9          var date = new Date();  // 得到最新的时间 <br>
+10          ms = date.getMilliseconds(); // 现在的毫秒数 <br>
+11          s = date.getSeconds() + ms / 1000;  //  得到秒 1.3 s <br>
+12          m = date.getMinutes() + s / 60;  //  得到的是分数  45.6分钟 <br>
+13          h = date.getHours() % 12 + m / 60 ; <br>
+14          // console.log(h); <br>
+15          // 旋转角度 <br>
+16         // 一圈  360 °     一共有 60 秒       每秒  6 °   现在是 s秒 <br>
+17          second.style.WebkitTransform = "rotate("+ s*6 +"deg)"; <br>
+18                       //  变化            旋转    deg  度 <br>
+19          minute.style.WebkitTransform = "rotate("+ m*6 +"deg)"; <br>
+20          hour.style.WebkitTransform = "rotate("+ h*30 +"deg)"; <br>
+21          second.style.MozTransform = "rotate("+ s*6 +"deg)"; <br>
+22                       //  变化            旋转    deg  度 <br>
+23          minute.style.MozTransform = "rotate("+ m*6 +"deg)"; <br>
+24          hour.style.MozTransform = "rotate("+ h*30 +"deg)"; <br>
+25 <br>
+26      },30); <br>
+</p>
+
+<p>1.4 按钮不可用 <br>
+button  不可以用       disabled  不可用的意思 <br>
+btn.disabled = “disabled”     ||   btn.disabled = true; <br>
+  灰色的 <br>
+注意： <br>
+1.因为 button是个双标签  所以要更改他的值， 使用 innerHTML 的，不是value。 <br>
+2.关闭定时器   clearInterval(定时器名称);    定时器不再进行</p>
+
+<p>1.5  this <br>
+    this 指向的是 事件的调用者 ，或者是函数的使用者。 <br>
+     var  btn.onclick = function() {  this} </p>
+
+<p>一般情况下，我们喜欢 var that = this; <br>
+var that = this;  // 把 btn 对象 给 that  var _this = this;</p>
+
+<p>1.6    定时器之  setTimeout() <br>
+ 时间去哪儿了   类似于定时炸弹 。。 <br>
+ setTimeout(“函数”, 时间 )    </p>
+
+<p>setInterval(fn,5000);      每隔 5秒钟，就去执行函数fn一次 <br>
+ setTimeout(fn,5000);     5秒钟之后，去执行 fn 函数， 只执行一次 <br>
+1.6.1深层次的看待定时器区别 <br>
+setInterval是排队执行的 <br>
+假如 间隔时间是1秒， 而执行的程序的时间是2秒    上次还没执行完的代码会排队, 上一次执行完下一次的就立即执行, 这样实际执行的间隔时间为2秒 <br>
+setTimeout延迟时间为1秒执行, 要执行的代码需要2秒来执行,那这段代码上一次与下一次的执行时间为3秒.  <br>
+1.75秒钟自动跳转页面</p>
+
+<p>JS 页面跳转: window.location.href = ”<a href="http://www.itcast.cn" target="_blank">http://www.itcast.cn</a>” ;     BOM  </p>
+
+<p>函数自己调用自己的过程 我们称之为 ： 递归调用       自残</p>
+
+<p>但是这样用，一定要加一个退出 if 的条件，不然成为死循环了。 <br>
+目的就是为了，模拟使用 settimeout 来实现setinterval 的效果。 <br>
+</p></div></body></html>

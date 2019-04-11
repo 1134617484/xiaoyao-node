@@ -1,0 +1,337 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第一天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.1 Javascript 作用   4 <br>
+1.2 体验js    5 <br>
+1.2.1 Alert()  弹出警示框    6 <br>
+1.2.2 Console 控制台输出 6 <br>
+1.2.3 document.write()  文档打印输出  7 <br>
+1.3 熟悉js 用途 7 <br>
+1.4 变量  9 <br>
+1.4.1 变量的作用域    9 <br>
+1.5 事件三要素   10 <br>
+1.5.1 事件源   11 <br>
+1.5.2 事件    11 <br>
+1.5.3 事件处理程序    12 <br>
+1.5.4 总结    13 <br>
+1.6 隐藏样式    15 <br>
+1.7 入口函数    16 <br>
+1.8 模态框 17 <br>
+1.9 Padding 18 <br>
+1.10 Js 的书写位置   18 <br>
+1.10.1 行内式  18 <br>
+1.10.2 内嵌式  18 <br>
+1.10.3 外链式  19 <br>
+1.11 数据类型   19 <br>
+1.11.1 字符型 (string) 19 <br>
+1.11.2 布尔型 (boolean)    20 <br>
+1.11.3 数值型  20 <br>
+1.11.4 ParseInt()  parseFloat() 21 <br>
+1.11.5 Null  undefined  21 <br>
+1.12 作业 21</p>
+
+<p>1.1 <br>
+Javascript 作用 </p>
+
+<ol start="1"><li rel="1"><p>网页特效</p>
+
+<ol>
+<li rel="2"><p>用户交互</p></li>
+<li rel="3"><p>表单验证</p></li></ol></li>
+</ol>
+
+<p>Js  就是可以用来控制   结构  和 样式 。  </p>
+
+<p>1.2 体验js <br>
+   认识常用的三个输出语句。  都属于 js 内置对象 。  <br>
+ 大家买手机，手机里面有么有装好一些软件。 </p>
+
+<p>提供我们直接使用的功能就是 内置对象功能。 <br>
+1.2.1Alert()  弹出警示框 <br>
+完整的写法  :  window.alert(“执行语句”); <br>
+Window 对象  窗口    一般情况是可以省略的。  <br>
+Alert(“123”); <br>
+1.2.2Console 控制台输出 <br>
+ 一般用于 测试用。   </p>
+
+<p>Console  <br>
+使用代码    作用 <br>
+Console.log()   控制台输出  普通输出语句 <br>
+Console.warn()  控制台警示 <br>
+Console.error();    错误提示</p>
+
+<p>1.2.3document.write()  文档打印输出 <br>
+document   文档对象  它不可以省略 <br>
+Alert()  非常少。   用户体验 <br>
+Console  用户看不见  <br>
+document.write() 直接在文档中显示。 <br>
+1.3熟悉js 用途 <br>
+我们js 的主要目的 ，  控制 web标准中的前两种。 <br>
+结构 <br>
+样式 <br>
+行为 <br>
+Js 怎么来控制样式和结构呢？ <br>
+  我们班级有130人，我想要提问某个同学问题。 我应该怎么做？ <br>
+   首先我应该 点名字 找到这个同学。 他才能回答问题。 <br>
+Js 怎么来控制样式和结构呢？ <br>
+  首选先找人。找准对象。</p>
+
+<p>我们前面学过    div 一类人  span 都是  <br>
+                   类名 好多个 <br>
+                   Id 是永远是唯一的。  不会冲突。 <br>
+getElementById(“demo”)</p>
+
+<p>Get 获取   element 元素   by 通过   id 名字 <br>
+  通过 id 名字为 demo的  得到这个元素 <br>
+  因为这个div  是在  文档中，文档中很多个div其中的一个。所以我们 <br>
+先document <br>
+document.getElementById(“demo”).style.width = “200px”; <br>
+ 文档的 id为demo的 样式的 宽度的 值为 200px <br>
+borderTop <br>
+1.4变量 <br>
+变量的命名规则! <br>
+1.变量命名必须以字母或是下标符号”_”或者”$”为开头。 <br>
+2.变量名长度不能超过255个字符。 <br>
+3.变量名中不允许使用空格。 <br>
+4.不用使用脚本语言中保留的关键字及保留符号作为变量名。 <br>
+5.变量名区分大小写。(javascript是区分大小写的语言) <br>
+1  var a = 10; <br>
+2      function fun() <br>
+3      { a = “global”; } <br>
+4      console.log(a); <br>
+5      //输出 ？ <br>
+6      var a; <br>
+7      function fun() <br>
+8      { a = “global”; } <br>
+9      fun(); <br>
+10      console.log(a); <br>
+1.4.1变量的作用域 <br>
+  根据变量的作用范围   可以分为  全局变量 和 局部变量 <br>
+  全局变量： <br>
+    1. 在最外层声明的变量。 <br>
+    2. 在函数体内部，但是没有声明var 的变量也是全局变量 <br>
+  局部变量： <br>
+     在函数体内部的 声明的变量 <br>
+   小知识点： <br>
+     隐式的全局变量 <br>
+11  在函数体内部，但是没有声明var 的变量也是全局变量。 <br>
+12  var a = 1  <br>
+13  function func() {  <br>
+14      a = b = 2  <br>
+15  }  <br>
+16  func()  <br>
+17  alert(a)  <br>
+18  alert(b)  </p>
+
+<p>1.5事件三要素</p>
+
+<p>把等打开灯 要做这样的事情 。 <br>
+我们用我们的手    去 按 一下开关    灯亮了。 <br>
+事件源    事件    事件处理程序 <br>
+1.5.1事件源 <br>
+ 要触发的对象     手    用手去触发的。  谁触发了 <br>
+ 一般情况下 是 个名词 <br>
+ 发起者 <br>
+ 被触发者    开关按钮 <br>
+1.5.2事件  <br>
+  怎么触发的这个事情     按 <br>
+  一般情况下这个是 动词   点击  鼠标经过   按键盘  <br>
+事件名 说明 <br>
+onclick 鼠标单击 <br>
+ondblclick  鼠标双击 <br>
+onkeyup 按下并释放键盘上的一个键时触发  <br>
+onchange    文本内容或下拉菜单中的选项发生改变 <br>
+onfocus     获得焦点，表示文本框等获得鼠标光标。 <br>
+onblur  失去焦点，表示文本框等失去鼠标光标。 <br>
+onmouseover     鼠标悬停，即鼠标停留在图片等的上方 <br>
+onmouseout  鼠标移出，即离开图片等所在的区域 <br>
+onload  网页文档加载事件 <br>
+onunload    关闭网页时 <br>
+onsubmit    表单提交事件 <br>
+onreset 重置表单时</p>
+
+<p>1.5.3事件处理程序 <br>
+发生了什么事       灯亮了 <br>
+=  function(){  }  <br>
+1.5.4总结</p>
+
+<p>事件三要素： <br>
+    事件源    三藏 <br>
+    事件      念  <br>
+    事件处理程序   悟空头疼</p>
+
+<p>案例1 ：</p>
+
+<p>事件三要素： <br>
+       事件源：  x 盒子 <br>
+       事件:     点击  <br>
+       事件处理程序：  关闭 这个大的banner <br>
+  案例2 ：</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs"><div class="hljs-line">  事件源：    关注京东的这个盒子
+</div><div class="hljs-line">  事件：       鼠标滑过  经过
+</div><div class="hljs-line">  事件处理程序：   下拉菜单就会显示出来
+</div></code></pre>
+
+<p>事件源.事件 = function(){  事件处理函数 }</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line">事件源：  按钮
+</div><div class="hljs-line">事件  点击 
+</div><div class="hljs-line">事件处理程序：  盒子的宽度改变  400
+</div><div class="hljs-line">代码:
+</div><div class="hljs-line"> <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined"></span>
+</div></code></pre>
+
+<p>19      /<em>要操作先找人</em>/ <br>
+20      var demo = document.getElementById(“demo”);  //获得id为demo的div盒子给demo <br>
+21      var btn = document.getElementById(“btn”); // 获得按钮 <br>
+22      /<em>事件三要素</em>/ <br>
+23      /<em>事件源.事件 = fucntion(){}</em>/ <br>
+24      btn.onclick = function(){ <br>
+25          demo.style.width = “400px”; <br>
+26      } <br>
+27  </p>
+
+<p>1.6隐藏样式 <br>
+ Display: none           display: block ;  显示的意思  <br>
+ Visibility: hidden;       visibility: visible  显示的意思 <br>
+ Display  隐藏不占位置 <br>
+ Visibility:hidden 隐藏占有位置   停职留心 <br>
+ Overflow:hidden;   隐藏超出的部分。 <br>
+1.7入口函数  <br>
+ window.onload = function(){  <br>
+     内部放js <br>
+  } <br>
+这个函数的意思就是说，当我们页面加载完毕之后，采取执行函数体里面的js部分。  就是说等 页面的结构 样式  节点等加载完毕。。。 <br>
+所以，这句话也可以页面的顶端即可。</p>
+
+
+    window.onload = function(){
+        /*要做事，先找人*/
+        var pic1 = document.getElementById("pic1");
+        var pic2 = document.getElementById("pic2");
+        var pic3 = document.getElementById("pic3");
+        pic1.onclick = function(){
+            document.body.style.backgroundImage = "url(images/1.jpg)";
+        }
+        pic2.onclick = function(){
+            document.body.style.backgroundImage = "url(images/2.jpg)";
+        }
+        pic3.onclick = function(){
+            document.body.style.backgroundImage = "url(images/3.jpg)";
+        }
+    }
+
+
+<p>1.8模态框</p>
+
+<p> <br>
+        window.onload = function(){ <br>
+             //事件源:  登录 <br>
+            var login = document.getElementById("login"); <br>
+            var mask = document.getElementById("mask"); <br>
+            var box = document.getElementById("box"); <br>
+            login.onclick = function(){ <br>
+               // 当我们点击登录，会弹出灰色的大盒子和白色的小盒子 <br>
+                mask.style.display = "block"; <br>
+                box.style.display = "block"; <br>
+            } <br>
+           // 事件源 span x <br>
+            var close_all = document.getElementById("close_all"); <br>
+            close_all.onclick = function(){ <br>
+                mask.style.display = 'none'; <br>
+                box.style.display = "none"; <br>
+            } <br>
+        } <br>
+ <br>
+</p>
+
+<p>1.9Padding  <br>
+内边距  会影响盒子大小 <br>
+行内元素   尽量不用  上下的padding和margin <br>
+继承的宽度 padding不会挤开 。  <br>
+1.10Js 的书写位置  <br>
+Js 的书写位置非常的自由。 <br>
+也可以参照 css 的位置来分类。 <br>
+1.10.1 行内式  <br>
+点击我 <br>
+一般情况，单双引号是一样 的 但是出现 了包裹的情况。 <br>
+我们一般采取的是 外双内单的格式。 <br>
+<a href="”javascript:;”" target="_blank"></a> <br>
+<a href="”javascript:void(0);”" target="_blank"></a></p>
+
+<p>1.10.2 内嵌式 <br>
+   任何一个地方 <br>
+1.10.3 外链式</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs"><div class="hljs-line">这对标记之间不能写任何的东西。
+</div></code></pre>
+
+<p>1.11数据类型 <br>
+ Js 的数据类型分为： <br>
+  字符型     数值型   布尔型   null    undefined <br>
+ Js 是一个是一种弱数据类型 。 <br>
+ Var  Aa = 10; <br>
+Var  aa:int = 10; <br>
+ Js 的变量你给什么值，他就是什么数据类型。 <br>
+1.11.1 字符型 (string) <br>
+  String <br>
+  转换为字符型: </p>
+
+<ol><li rel="1">利用 “”  (双引号) <br>
+加了引号的都是字符型。</li>
+<li rel="2">利用String();  转换为字符型 <br>
+1.11.2  布尔型 (boolean) <br>
+就两个值   正确的和错误的   true  和  false <br>
+数据类型转换为布尔型：</li>
+<li rel="1">利用 !! <br>
+console.log(typeof !!num);</li>
+<li rel="2">利用 Boolean() <br>
+false、undefined 、null、0、””  为 false  <br>
+true、1、”somestring”、[Object]  为 true <br>
+1.11.3 数值型 <br>
+Var  num = 10 <br>
+数值的前面带  0  表示 八进制 <br>
+Var num = 020; <br>
+0*80+2*81  = 16 <br>
+数值的前面带  0x  表示 十六进制  <br>
+var result = 0xb;   11 <br>
+转换为数值型:</li>
+<li rel="1">利用 -  *  / 都可以转换  <br>
+2  利用Number( )  </li>
+</ol>
+
+<p>1.11.4 ParseInt()  parseFloat() <br>
+parseInt(值, 进制); <br>
+NOT a number <br>
+MMD  <br>
+BBD <br>
+parseInt(110,2)  <br>
+ 表示2进制        吧10 这个2进制转换为 10进制 <br>
+ 0*20+1*21  + 1*22   =  6  </p>
+
+<p>1.var a=”15.15abc” , b=’10.15’ , c=’10.0abc’; <br>
+alert(parseInt(a)+Number(b)+parseFloat(c)); <br>
+1.11.5 Null  undefined  <br>
+Null  空的       没有值 。 <br>
+Undefined  未定义的    应该有值，但是没有给。 <br>
+Null        “” <br>
+1.12作业 </p>
+
+<p>后天  函数   for   if   switch    </p></div></body></html>

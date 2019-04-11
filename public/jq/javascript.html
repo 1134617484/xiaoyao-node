@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+		<title></title>
+		<style>
+			/*body{
+				SCROLLBAR-FACE-COLOR: #CCFFFF;
+				SCROLLBAR-HIGHLIGHT-COLOR: white;
+				SCROLLBAR-SHADOW-COLOR: #813533;
+				SCROLLBAR-3DLIGHT-COLOR: #813533;
+				SCROLLBAR-ARROW-COLOR: #813533;
+				SCROLLBAR-TRACK-COLOR: white;
+				SCROLLBAR-DARKSHADOW-COLOR: #813533;
+			}*/
+			::-webkit-scrollbar{
+				display: none;
+			}
+			.tab{
+				background-image: url(1.jpg);
+				display:flex;
+				height: 100%;
+			}
+			.tab ul{
+				background-image: url(2.jpg);
+				padding: 0;
+				margin: 0;
+				overflow: auto;
+			}
+			.tab li{
+				width: 100%;
+				overflow: hidden;
+				height: 30px;
+				line-height: 30px;
+				list-style-type: none;
+				border-bottom:1px solid #666666 ;
+			}
+			.tab a{
+				color:blanchedalmond ;
+				text-decoration: none;
+			}
+			.tab a:active{
+				color: firebrick;
+			}
+			#content{
+				width: 83%;
+				overflow-y: scroll;
+			}
+			#content>iframe{
+				width: 100%;
+				overflow-y: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<ul>
+				<li><a href="../01-javascript/01-第一章 初识Javasript.html" target="index">初识Javasript</a></li>
+				<li><a href="../01-javascript/02-第二章 Sublime text指南.html" target="index">Sublime text指南</a></li>
+				<li><a href="../01-javascript/03-第三章 函数、自定义属性、事件.html" target="index"> 函数、自定义属性、事件</a></li>
+				<li><a href="../01-javascript/04-第四章 操作元素属性 CSS样式的使用.html" target="index">操作元素属性.样式</a></li>
+				<li><a href="../01-javascript/05-第五章 javascript数据类型 判断 条件语句.html" target="index">数据类型 判断 条件语句</a></li>
+				<li><a href="../01-javascript/06-第六章 for循环  while后循环  do while前循环.html" target="index">for while do while循环</a></li>
+				<li><a href="../01-javascript/07-第七章 运算符 类型转换.html" target="index">运算符 类型转换</a></li>
+				<li><a href="../01-javascript/08-第八章 函数(自执行) (传参) (return) getComputedStyle().html" target="index">函数[自执行][传参][return]</a></li>
+				<li><a href="../01-javascript/09-第九章 作用域  js预解析 闭包.html" target="index">作用域  js预解析 闭包</a></li>
+				<li><a href="../01-javascript/10-第十章 字符串方法和数组.html" target="index">字符串方法和数组</a></li>
+				<li><a href="../01-javascript/11-第十一章 对象 for in  function-all apply bind.html" target="index">对象</a></li>
+				<li><a href="../01-javascript/12-第十二章  定时器 Math函数.html" target="index">定时器 Math函数</a></li>
+				<li><a href="../01-javascript/13-第十三章  日期对象Date.html" target="index">日期对象Date.html</a></li>
+				<li><a href="../01-javascript/14-第十四章  运动（上）.html" target="index">运动（上）</a></li>
+				<li><a href="../01-javascript/15-第十五章  运动(中).html" target="index">运动(中)</a></li>
+				<li><a href="../01-javascript/16-第十六章  运动(下).html" target="index">运动(下)</a></li>
+				<li><a href="../01-javascript/17-第十七章  DOM文档对象模型.html" target="index"> DOM文档对象模型</a></li>
+				<li><a href="../01-javascript/18-第十八章 、CSSOM视图模式(CSS Object Model View).html" target="index">CSSOM视图模式</a></li>
+				<li><a href="../01-javascript/19-第十九章 BOM.html" target="index">BOM</a></li>
+				<li><a href="../01-javascript/20-第二十章 evetn对象 阻止冒泡 注册l移除监听事件.html" target="index">evetn对象 阻止冒泡 事件监听</a></li>
+				<li><a href="../01-javascript/21-第二十一章 addEventLitener 默认事件 滚轮事件.html" target="index">addEventLitener.滚轮事件</a></li>
+				<li><a href="../01-javascript/22-第二十二章 表单事件 事件委托 onready封装 键盘事件.html" target="index">from(事件委托(键盘)onready</a></li>
+				<li><a href="../01-javascript/23-第二十三章 RegExp.html" target="index">RegExp</a></li>
+				<li><a href="../01-javascript/24-第二十四章 cookie.html" target="index">cookie</a></li>
+				<li><a href="../01-javascript/25-第二十五章 脚本化HTTP Ajax.html" target="index">脚本化HTTP Ajax</a></li>
+				<li><a href="../01-javascript/26-第二十六章 Ajax封装  跨域 jsonp (二).html" target="index">Ajax封装  跨域 jsonp (二)</a></li>
+				<li><a href="../01-javascript/27-第二十七章 面向对象OOP 构造函数(一).html" target="index">面向对象OOP 构造函数(一)</a></li>
+				<li><a href="../01-javascript/27-第二十七章 面向对象 OOP 继承(二).html" target="index">面向对象 OOP 继承(二)</a></li>
+				<li><a href="../01-javascript/27-第二十七章 面向对象 OOP ECMAscrtipt5(三).html" target="index">面向对象 OOP ECMAscrtipt5(三)</a></li>
+			</ul>
+			<div id="content" >
+				 <iframe scrolling="auto" style="width: 100%;height: 99%;" scrolling="no" name="index"  
+				 	 frameborder="0" src="../01-javascript/01-第一章 初识Javasript.html" longdesc=""></iframe>
+			</div>
+		</div>
+		
+		<!--<frameset cols="120,*">
+		
+		  <frame src="../01-javascript/01-第一章 初识Javasript.html">
+		  <frame src="../01-javascript/02-第二章 Sublime text指南.html" name="showframe">
+		
+		</frameset>
+		<frameset cols="25%,50%,25%">
+			asdhk  			<frame src="loge.png" />
+  			<frame src="../img/loge.png" />
+  			<frame src="/new_file.html" />
+		</frameset>-->
+	</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>逍遥--江山代有才人出,各领风骚数百年</title>
+<meta name="keywords" content="逍遥博客" />
+<meta name="description" content="逍遥博客" />
+<link href="../public/css/base.css" rel="stylesheet">
+<link href="../public/css/main.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+
+<link rel="prerender"  href="../views/listpic.html"/>
+<link rel="prerender"  href="../public/jq/javascript.html"/>
+<link rel="prerender"  href="../public/jq/jquery.html"/>
+
+<script type="text/javascript" src="../public/js/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+	.lispic li{
+		position: relative;
+	}
+	.stdbg{
+		
+	}
+	.student{
+		cursor:help;
+		width:100%;
+		height: 100%;
+		position: absolute;
+		z-index:2;
+		left: 0;
+		top: 0;
+		opacity: 0;
+	}
+	.delete{
+		width: 30px !important;
+		height: 30px !important;
+		position: absolute;
+		z-index:2;
+		right: 0;
+		top:5px;
+	}
+	.lispic .delete{
+		display:none;
+	}
+	.lispic li span{
+		height:20px;
+		/*padding: 18px 0;*/
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+	}
+	.i_sub{
+		cursor:pointer;
+		position:absolute;
+		z-index:2;
+	}
+</style>
+</head>
+<body onload="del()" >
+<div id="wrapper">
+<header>
+  <div class="headtop"></div>
+  <div class="contenttop">
+    <div class="logo f_l" onclick="contenr()">逍遥--江山代有才人出,各领风骚数百年</div>
+    <div class="search f_r">
+      <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="blank"></div>
+     <nav>
+        <div  class="navigation">
+          <ul class="menu">
+            <li><a href="index.html">网站首页</a></li>
+            <li><a href="#">关于我</a>
+              <ul>
+                <li><a href="../views/about.html">个人简介</a></li>
+                <li><a href="../views/listpic.html">个人相册</a></li>
+              </ul>
+            </li>
+            <li><a href="#">我的日记</a>
+              <ul>
+                <li><a href="newslistpic.html">个人日记</a></li>
+                <li><a href="newStudy.html">学习笔记</a></li>
+                <li><a href="https://vuefe.cn/v2/guide/">Vue中文文档</a></li>
+              </ul>
+            </li>
+            <li><a href="newSkill.html">技术文章</a> </li>
+            <li><a href="#">WEB资料</a>
+              <ul>
+              	<li><a href="../public/jq/javascript.html">jacvascript</a></li>
+              	<li><a href="../public/jq/jquery.html">jquery</a></li>
+                <li><a href="../public/newslistpic.html">html5+css3</a></li>
+              </ul>
+            </li>
+            <li><a href="write.html">写文章</a></li>
+          </ul>
+        </div>
+      </nav>
+    <SCRIPT type=text/javascript>
+	// Navigation Menu
+	$(function() {
+		$(".menu ul").css({display: "none"}); // Opera Fix
+		$(".menu li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+		},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+	});
+</SCRIPT> 
+  </div>
+</header>
+<div class="container">
+  <div class="con_content">
+    <div class="about_box">
+      <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人相册</a></span><b onclick="add_list_img()">个人相册</b></h2>
+      <div class="lispic">
+        <ul class="ul_list">
+        	<!--<li><img class="stdbg" src="../public/images/01.jpg"/>
+        	<span class="std">
+        		<input id="student" class="student" name="image" type="file" accept="image/*; capture=camera" value=""/>
+        		<i id="upload" class="i_sub">图片上传</i><img class="delete" src="../public/images/delete.png"/></span></li>-->
+        </ul>
+      </div>
+      <div class="pagelist">页次：1/1 每页25 总数10<a href="/">首页</a><a href="/">上一页</a><a href="/">下一页</a><a href="/">尾页</a></div>
+    </div>
+  </div>
+  <div class="blank"></div>
+  <!-- container代码 结束 -->
+  
+  <footer>
+    <div class="footer">
+      <div class="f_l">
+        <p>逍遥博客--备案号：滇ICP备17010927号</p>
+      </div>
+      <div class="f_r textr">
+        <p>江山代有才人出,各领风骚数百年</p>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="../public/img_css/listpic.js"></script>
+<script>
+//	浏览器自带doc文档在线编辑
+//	openDocObj = new ActiveXObject("SharePoint.OpenDocuments.2");
+//	openDocObj.ViewDocument("http://www.abc.com/documents/sample.doc");
+/*鼠标悬浮出现删除按钮*/
+/*外围for循环确定下标*/
+function del() {
+	for(var i=0;i<$('.student').length;i++){
+	  	box(i);
+	  	delet(i);
+	  	upload(i);
+	}
+};
+function deles() {
+	for(var i=0;i<$('.student').length;i++){
+	  	box(i);
+	  	delet(i);
+	}
+};
+/*借用上面获取的下标.鼠标悬浮当前出现红叉删除,移出取消*/
+function box(b){
+	var std=document.getElementsByClassName('std');
+	var delet=document.getElementsByClassName('delete');
+ std[b].onmouseover=function(){ 
+		document.getElementsByClassName('delete')[b].style.display='block';
+    }
+  std[b].onmouseout=function(){
+		document.getElementsByClassName('delete')[b].style.display='none';
+    }
+}
+/*点击个人相册增加一个图片上传组件,但因上面下标只获取一次,这里增加则导致下标不对应,故再次执行获取下标函数*/
+function add_list_img(){
+	var html=`<li><img class="stdbg" src=""/>
+        	<span class="std"><input class="student" name="studentPhoto" type="file" accept="image/*; capture=camera" value=""/>
+        	<i class="i_sub">图片上传</i><img class="delete" src="../public/images/delete.png"/></span></li>`;
+        	var ul_list=document.getElementsByClassName('ul_list')[0];
+        	ul_list.innerHTML+=html;
+del();
+}
+/*点击红叉删除本节点,但因上面下标只获取一次,这里删除节点则导致下标不对应,故再次执行获取下标函数*/
+/*删除还需增加删除数据库的函数*/
+	/*
+	        通过获取父亲节点再获取子节点来获取兄弟节点，在获取前一个兄弟节点的时候可以使用previousSibling和previousElementSibling。
+	*/
+function delet(i){
+	var delet=document.getElementsByClassName('delete');
+	delet[i].addEventListener("click", function(){
+		var thiss=this;
+		var src=this.parentNode.previousElementSibling.src.slice(36);
+		$.ajax({
+	 url:'/upload/del',
+     type:'post',
+    data:{src:src},
+    cache:true,
+    async:true,
+    success : function(data) {
+    	thiss.parentNode.parentNode.remove();
+deles();
+    },
+    clearForm: false,  
+    resetForm: false, 
+    error : function(data) {
+       console.log("删除失败，请仔细检查");
+    }
+  })
+});
+}
+
+/*还需要有一个页面加载自执行函数获取数据库所有图片*/
+$(document).ready(function search_images(){
+	$.ajax({
+	 url:'/users/search_images',
+     type:'post',
+    data:'',
+    cache:true,
+    async:true,
+    success : function(a) {
+    	var ul_list=document.getElementsByClassName('ul_list')[0];
+        var html=`<li><img class="stdbg" src=""/>
+        	<span class="std"><input  class="student" value="" type='file' disable='disable'/>
+        	<i class="i_sub"></i><img class="delete" src="../public/images/delete.png"/></span></li>`;
+//  	var html=`<li><img class="stdbg" src=""/><span class="std"><input class="student" type="file" />
+//  		<img class="delete" src="../public/images/delete.png"/></span></li>`;
+    		var stdbg=document.getElementsByClassName('stdbg');
+        	for (var i = 0; i < a.length; i++) {
+        		ul_list.innerHTML+=html;
+      		stdbg[i].src='../public/upload/'+a[i].img;
+        	}
+        	deles();
+    },
+    clearForm: false,  
+    resetForm: false, 
+    error : function(data) {
+    }
+});
+});
+/*数据库删除*/
+
+
+
+/*本地上传图片预览*/
+function upload(b){
+	var i_sub=document.getElementsByClassName('i_sub');
+	var student=document.getElementsByClassName('student');
+	var students=document.getElementById('student');
+	// 单张图片上传
+	i_sub[b].addEventListener("click", function(){
+    const formData = new FormData();
+    const file =student[b].files[0];
+    if(!file) return;
+    formData.append('file', file);
+    $.ajax({
+      url: '/file_upload',
+      type: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success(res) {
+      $('.stdbg')[b].src=`../public/upload/${res}`;
+      },error:function (XMLHttpRequest, textStatus, errorThrown){
+		} 
+    })
+  })
+
+}
+
+
+//})
+/*点击红叉数据库删除该图片*/
+
+
+/*页面加载完自动获取数据库图片,有几张则显示几个图片*/
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>jQuery02 <br>
+一、jQuery的运用讲解 <br>
+1.JQ里的css样式操作 <br>
+i.css方法 （获取/设置样式 获取最终样式 设置内联样式） <br>
+参数： <br>
+    一个字符串参数：获取第一个元素对应的样式； <br>
+    一个json参数：设置多个属性：值，值可以为函数，改函数可以接受两个参数，一个为序号，一个为之前的属性值； <br>
+    两个字符串参数：第一个为属性，第二个为值。 <br>
+ii.offset方法（获取/设置文档左边/顶部距离） <br>
+获取：无需参数，返回一个json，该json有left/top两个属性，分别表示元素距离文档左边/顶部距离。例如：</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs coq"><div class="hljs-line">设置：需要一个json参数，且拥有两个<span class="hljs-built_in">left</span>/<span class="hljs-built_in">top</span>两个属性，讲元素置于距离文档对应设置值的位置。例如：
+</div></code></pre>
+
+<p>iii.position方法（获取元素距离定位父级的顶部/左边距离） <br>
+无需参数，返回一个json，该json有left/top两个属性，分别表示元素距离定位父级左边/顶部距离。要注意的是，这个距离不会算上margin <br>
+iv.scrollTop / scrollLeft方法（设置/获取滚动距离） <br>
+无参数：获取元素的滚动距离；有参数：参数为数字，将元素的滚动距离设置为</p>
+
+<p>v.width / height方法（设置/获取元素的宽高） <br>
+无参数：获取元素的宽高； <br>
+有参数：参数为数字，设置元素的宽高。 <br>
+vi.innerWidth / innerHeight方法（获取元素的 宽高+padding） <br>
+无需参数，只能获取。 <br>
+vii.outerWidth / outerHeight方法（获取元素的 宽高+padding+border） <br>
+无需参数，只能获取。 <br>
+2.JQ里的文档处理 <br>
+i.append方法 （往元素内容的最后面添加子元素） <br>
+参数：JQ对象 / JS对象 / HTML字符串 / 返回HTML字符串的函数。 <br>
+ii.appendTo方法（将元素置于参数元素内容的最后面） <br>
+此方法和append相反，append是将参数置于对象里面，appendTo是将对象置于参数里面。 <br>
+iii.prepend （往元素内容的最前面添加子元素） <br>
+iv.prependTo方法（将元素置于参数元素的最前面） <br>
+v.empty方法（清空元素的所有html内容） <br>
+注意：类似于js里面的将innerHTML设置为空字符。 <br>
+vi.remove（将元素删除） <br>
+注意：无需再跟js一样找父亲删除了，jq里面自己就能删除自己。类似的方法有detach，区别在于，remove会删除元素的事件，detach不会。 <br>
+vii.clone（复制一个对象） <br>
+注意：返回一个新的JQ对象，子元素也会被复制。</p>
+
+<p>参数： <br>
+一个布尔值，被复制的元素的事件是否保留，默认false； <br>
+    两个布尔值，（第二个）被复制的元素的子元素事件是否保留，默认false <br>
+viii.after / before方法（往元素的 后面/前面 加一个兄弟元素） <br>
+注意：append/prepend是加子元素，而这两个方法是加兄弟元素。 <br>
+ix.insertAfter / insertBefore方法（将元素置于参数元素的 后面/前面） <br>
+after / befor的反方法。 <br>
+x.wrap方法（给元素加一个父亲，参数为父亲） <br>
+注意：会将所有匹配的元素置于一个父亲之中。 <br>
+xi.unwrap方法（删除掉元素的父亲） <br>
+注意：只删除父节点，但是该父节点的子元素都会被保留，不会删除。 <br>
+xii.wrapall方法 （给元素添加父亲，参数为父亲） <br>
+注意：每个匹配元素单独添加一个父亲。 <br>
+xiii.wrapInner方法（将元素的所有子节点用一个标签包裹起来） <br>
+注意：子节点包括文本节点。 <br>
+xiv.replaceWith （将元素替换为参数元素，删除掉原来的） <br>
+xv.replaceAll方法（将参数元素删除，并用匹配元素替换） <br>
+注意：该方法为replaceWith的反方法。 <br>
+3.JQ里的筛选 <br>
+i.eq方法 <br>
+需要一个数字参数，该数字代表序列号，把这个序号对应的节点拿出来，重新返回</p>
+
+<p>一个只选中这个节点的新的JQ对象。 <br>
+ii.siblings方法（选取同级兄弟） <br>
+选中同级兄弟节点，返回一个新的JQ对象； <br>
+可以传参筛选。 <br>
+iii.find方法 （选取后代） <br>
+选取后代元素，需要传参筛选，返回一个新的JQ对象。 <br>
+iv.children方法（选取子类） <br>
+只选择儿子，返回一个新的JQ对象，可以传参筛选。 <br>
+v.parent （选取父亲） <br>
+选择父亲，返回新的JQ对象，可以传参筛选。 <br>
+vi.parents方法（选取祖辈） <br>
+选择所有祖辈，返回新的JQ对象，可以传参筛选。 <br>
+vii.offsetParent方法（选取定位父级） <br>
+无需参数。 <br>
+viii.hasClass方法（判断是否有某个名字） <br>
+需要类名参数，参数不要加“.”，判断是否有这个名字，返回布尔值。 <br>
+ix.filter方法 （选取后代） <br>
+需要传参筛选，从选中的节点中，筛选出某些，返回新的JQ对象。 <br>
+x.has方法（选取拥有某个子类的元素） <br>
+需要传参，选取拥有参数子类的元素，返回新的JQ对象。 <br>
+JQ还有很多筛选方法不常用，大家可以阅读API文档自行了解。</p></div></body></html>

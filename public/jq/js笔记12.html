@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第十二天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>1.1 <br>
+复习 <br>
+ 1。  三个取整函数    Math.ceil(1.4)   2  天花板  往高了取 <br>
+                      Math.floor(1.01) 1   地板    往小了取 <br>
+                       Math.floor(1.9) 1 <br>
+                      Math.round()   四舍五入函数   1.5  2</p>
+
+<ol start="2"><li rel="2">动画的原理：  <br>
+   盒子位置  =   盒子当前的样式 +  步长   </li>
+<li rel="3">以前  offsetLeft   现在  所有的样式   内嵌 外链 <br>
+ ie   obj.currentStyle <br>
+     window.getComputedStyle(obj, null); <br>
+1      function fun(obj,attr) <br>
+2      { <br>
+3               if(obj.currentStyle) <br>
+4  {    return obj.currentStyle[attr]; <br>
+5   }  else {  <br>
+6   return window.getComputedStyle(obj,null)[attr]} <br>
+7       } <br>
+8 <br>
+1.2json  <br>
+两种声明方式</li>
+<li rel="1">对象声明   var  json = {width:100,height:100}</li>
+<li rel="2">数组声明   var  man = [        //  数组的 json <br>
+{ <br>
+    name:”刘德华”, <br>
+    age : 16, <br>
+    address: “香港” <br>
+}, <br>
+{ <br>
+    name:”张学友”, <br>
+    age: 33, <br>
+    address: “澳门” <br>
+}, <br>
+{ <br>
+    name:”黎明”, <br>
+    age: 55, <br>
+    address: “大陆” <br>
+} <br>
+];</li>
+</ol>
+
+<p>for(var i=0;i&lt;man.length;i++) <br>
+{ <br>
+    console.log(man[i].name); <br>
+}</p>
+
+<p>旋转原理： <br>
+      每次点击 按钮， 他们的json 数值就更换就可以了. <br>
+      删除和添加 数组 <br>
+      pop()  删除最后一个  <br>
+      shift()  删除第一个  <br>
+      push() 追加 添加到最后面  <br>
+      unshift()  添加到 第一个位置 <br>
+ 把 最后一个json 删除   并且把最后一个添加到json 第一个位置 <br>
+      json.unshift(json.pop()); <br>
+     json.pop()  删除最后一个元素 <br>
+    console.log(json.pop())  返回最后一个值</p></div></body></html>

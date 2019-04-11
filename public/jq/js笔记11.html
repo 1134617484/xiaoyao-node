@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第十一天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 三个取整函数  3 <br>
+1.4 缓动动画原理  4 <br>
+1.5 js 常用 访问 CSS 属性 4 <br>
+1.6 得到css 样式    5</p>
+
+<p>1.1 <br>
+复习    </p>
+
+<ol start="1"><li rel="1">clientX          clientWidth   可视区域的宽度  <br>
+clientWidth     width  +  padding <br>
+offsetWidth     width + padding + border  <br>
+scrollWidth     width + padding      超过  内容的宽度  <br>
+2.window.onresize    窗口改变 <br>
+<ol>
+<li rel="3">匀速运动函数      原理 ：  盒子的原来位置  +  步长  <br>
+1.2三个取整函数 <br>
+这三个函数都是  数学函数 <br>
+Math <br>
+Math.ceil()    向上取整      天花板 <br>
+比如说  console.log(Math.ceil(1.01))       结果 是 2 <br>
+ console.log(Math.ceil(1.9))        结果 2  <br>
+ console.log(Math.ceil(-1.3))       结果 是  -1 <br>
+Math.floor()   向下取整      地板 <br>
+比如说 console.log(Math.floor(1.01))       结果 是 1 <br>
+ console.log(Math.floor(1.9))           结果 1  <br>
+ console.log(Math.floor(-1.3))       结果 是  -2 <br>
+Math.round()   四舍五入函数 <br>
+    console.log(Math.round(1.01))       结果 是 1  <br>
+   console.log(Math.round(1.9))       结果 是 2  <br>
+1.3缓动动画原理 <br>
+匀速动画的原理：   盒子本身的位置  +  步长 <br>
+缓动动画的原理:    盒子本身的位置  +  步长 (不断变化的) <br>
+封装代码： <br>
+1     function animate(obj,target){  //  第一个参数 动谁   第二个参数  动多少 <br>
+2          clearInterval(obj.timer); <br>
+3          obj.timer = setInterval(function() { <br>
+4                // 计算步长   动画的原理    盒子本身的位置  +  步长 <br>
+5                var step = (target - obj.offsetLeft) / 10;  // 步长 <br>
+6                step =  step &gt; 0 ? Math.ceil(step) : Math.floor(step);  //  取整步长 <br>
+7                // obj.style.left = 盒子本身的位置  +  步长 <br>
+8                obj.style.left = obj.offsetLeft + step + “px”; <br>
+9                if(obj.offsetLeft == target){ <br>
+10                    clearInterval(obj.timer); <br>
+11                } <br>
+12          },30) <br>
+13      }</li></ol></li>
+</ol>
+
+<p>1.4 js 常用 访问 CSS 属性 </p>
+
+<p>我们访问得到css 属性，比较常用的有两种： <br>
+    1. 利用点语法  <br>
+       box.style.width      box.style.top <br>
+     点语法可以得到 width  属性  和 top属性  带有单位的。 100px <br>
+     但是这个语法有非常大的缺陷，  不变的。  <br>
+     后面的width  和 top  没有办法传递参数的。 <br>
+      var w = width; <br>
+      box.style.w     </p>
+
+<ol start="2"><li rel="2">利用 []  访问属性 <br>
+  语法格式:  box.style[“width”] <br>
+            元素.style[“属性”]; <br>
+  console.log(box.style[“left”]);</li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs"><div class="hljs-line">   最大的优点  ：  可以给属性传递参数
+</div></code></pre>
+
+<p>1.5 得到css 样式 <br>
+我们想要获得css 的样式， box.style.left    box.style.backgorundColor <br>
+但是它只能得到   行内的样式。  <br>
+但是我们工作最多用的是 内嵌式 或者 外链式 。 <br>
+怎么办？  <br>
+   核心： 我们怎么才能得到内嵌或者外链的样式呢？  </p>
+
+<ol start="1"><li rel="1">obj.currentStyle   ie  opera  常用 <br>
+外部（使用）和内嵌（使用</li></ol></div></body></html>

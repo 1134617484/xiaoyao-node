@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>jq入門基礎</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>jQuery01 <br>
+一、JQ的介绍 <br>
+1.jQuery是什么： <br>
+jQuery是由JavaScript语法写成的一个插件库，可以理解为封装好了一系列常用且繁琐的js方法，使我们在操作节点的时候更方便简洁。 <br>
+2.如何使用jQuery： <br>
+因为jQuery是由js写成的插件，所以我们在使用jQuery之前需要先引入jQuery的代码。我们可以访问jQuery官网下载：<a href="http://jquery.com/" target="_blank">http://jquery.com/</a> （网站打开速度很慢）或者去各大CDN网站下载，比如：<a href="http://www.bootcdn.cn/jquery/" target="_blank">http://www.bootcdn.cn/jquery/</a>。我们可以引用自己下载的jQ，或者CDN网站给我们提供的链接，实际上线的网站开发中一般推荐使用cdn链接，因为加载速度肯定会比我们自己网站加载速度快。 <br>
+3.jQuery的版本： <br>
+目前jQuery有三个大版本，1.x.x / 2.x.x / 3.x.x，其中1.x.x的版本支持IE9以下的IE低版本，所以体积较其他两个版本大；2.x.x的版本停止对IE9以下版本的支持，代码减少性能要好；3.x.x的版本在2基础上，完全移除了IE工作区采用了新的动画API等，性能更佳。 <br>
+每个jQuery版本都有一个完整版和一个压缩版，完整版可以很清晰的看到jQuery各部分源代码的构造，但是体积较大；压缩版(min版)是看不清源码结构的，体积大幅缩小，专门供引用。我们在开发时一般引用压缩版本。 <br>
+如果要兼容低版本IE，推荐使用1.x.x版本，目前最高版本为1.12.4，链接：<a href="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js" target="_blank">http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js</a> <br>
+如果无须兼容IE低版本，推荐使用3.x.x版本，目前推荐使用：<a href="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js" target="_blank">http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js</a>。</p>
+
+<p>引入：</p>
+
+<p>或者</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs"><div class="hljs-line">    当然，引入其他CDN网站上的JQ、自己下载的JQ、完整版的JQ都可以。
+</div></code></pre>
+
+<p>4.文档资料 <br>
+学习jQuery必备API文档：<a href="http://jquery.cuishifeng.cn/" target="_blank">http://jquery.cuishifeng.cn/</a> <br>
+二、jQuery的运用讲解 <br>
+1.JQ如何获取标签节点 <br>
+jQ里面获取元素非常简单，只需要$()函数就可以完成： <br>
+参数：类似于css选择器的字符串，几乎支持所有选择器；例子：</p>
+
+<p>参数：js选中的节点/节点集合；例子：</p>
+
+<p>注意：js获取的元素和jq获取的元素是有区别的，js获取的元素我们称之为DOM对象 / js对象，jq获取的元素（上述$方法返回的对象）我们称之为jq对象；js对象只能运用DOM提供的方法/属性（API），jq对象只能运用jq插件本身定义好的方法/属性（jq API）；我们JQ课程学习的重点就是了解JQ插件里面有哪些方法/属性，以及他们各自的作用。 <br>
+2.JQ方法 – css <br>
+如上所述，只有JQ对象才能使用JQ方法，JQ方法是有很多优点的，下面以css方法为例来初步 <br>
+解一下。</p>
+
+<p>例1： <br>
+html代码：</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs css"><div class="hljs-line">    <span class="hljs-selector-tag">JavaScript</span>代码：
+</div><div class="hljs-line">
+</div><div class="hljs-line">    效果：三个<span class="hljs-selector-class">.txt</span>标签全部添加上了行内属性 <span class="hljs-selector-tag">color</span><span class="hljs-selector-pseudo">:red</span>; 字体颜色全部变红；（亲自试一试）
+</div></code></pre>
+
+<p>例2： <br>
+    JavaScript代码：</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs 1c"><div class="hljs-line">效果：获取<span class="hljs-meta">#box的宽度并弹窗出来（测试）；</span>
+</div></code></pre>
+
+<p>可以看出，css方法将设置样式和获取样式综合在一起了，并且给多个元素设置样式的时候无需遍历（回忆原生js如何实现上述案例），这让我们节省了很多代码，开发效率大幅提升。 <br>
+    css方法还有另外的使用方式，后面的章节我们再详细讲解。 <br>
+3.JQ对象和JS对象的互相转换： <br>
+既然JQ对象和JS对象相互之间不能共用方法，那肯定存在很多时候需要两者之间的互相转换。 <br>
+JS -&gt; JQ  :  $(  JS对象  ) 前面讲过了； <br>
+JQ -&gt; JS  :  <span class="" rel="e7450def311019a301b5e6d1b9e3e3db"><span class="MathJax_SVG" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="115.016" height="18" longdesc="__SVG__undefined" src="data:image/png;base64,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" style="margin-top:0;margin-bottom:0;"></span></span></span>()[ 序号 ]，例：</p>
+
+<p>4.JQ基本上都是方法，只有极个别属性。如果某个方法有设置值和获取值的功能，那么，设置是针对全部的元素，获取只获取第一个元素。 <br>
+5.JQ方法的返回和方法链 <br>
+大部分JQ方法都返回执行该方法的JQ对象本身，而有些方法返回具体的内容而不是JQ对象。比如上述的css方法只传一个参数时，那么就是返回对应的属性值字符串，而不是JQ对象 <br>
+类似于讲面向对象时候我们提过的方法链的知识，因为部分JQ方法返回的还是JQ对象，所以我们都能进行如下的写法： <br>
+$( ‘选择器’ ).方法1（）.方法2（）.方法3（）……； <br>
+6.JQ里的属性操作 <br>
+i.attr方法 （获取/设置 标签属性 包括自定义的标签属性） <br>
+一个字符串参数：获取第一个元素对应属性； <br>
+二个字符串参数：设置对应属性； <br>
+一个json参数：设置多个对应属性； <br>
+例子：</p>
+
+<p>ii.prop方法（获取/设置 合法的标签属性） <br>
+用法和attr类似</p>
+
+<p>iii.removeAttr / removeProp方法（移除标签属性） <br>
+参数为要删除的属性字符串 <br>
+推荐使用removeAttr而不要用removeProp <br>
+iv.addClass方法（添加类名） <br>
+一个字符串参数：一个类名或多个以空格隔开的类名 <br>
+一个函数参数：该函数可以接受两个形参，第一个为各自的序号，第二个为各自的类名 <br>
+v.removeClass方法（移除类名） <br>
+参数和addClass一样 <br>
+vi.toggleClass方法（切换类名，有则删，无则加） <br>
+一个字符串参数：同addclass <br>
+一个函数参数：同addClass <br>
+两个参数： <br>
+一个为类名或多个类名，一个为是否切换的布尔值 <br>
+一个为函数，一个为为是否切换的布尔值 <br>
+vii.html / text方法（设置/获取html/text内容） <br>
+一个参数：字符串/数字，讲选中的节点的html/text内容替换为 <br>
+没有参数：获取第一个节点的html/text内容 <br>
+viii.val方法（设置/获取value内容） <br>
+参数和html一样 <br>
+7.未完待续……</p></div></body></html>

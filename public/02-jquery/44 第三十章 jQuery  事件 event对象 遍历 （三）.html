@@ -1,0 +1,257 @@
+<!DOCTYPE html><html><head><title>44 第三十章 jQuery  事件 event对象 遍历 （三）</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="44-第三十章-jquery-事件-event对象-遍历-三">44 第三十章 jQuery  事件 event对象 遍历 （三）</h2>
+
+<p></p>
+
+
+
+<h2 id="一事件操作">一、事件操作</h2>
+
+
+
+<hr>
+
+
+
+<h4 id="1hover-滑入滑出事件">1、<code>hover(  )</code> 滑入滑出事件</h4>
+
+<blockquote>
+  <p>hover(<strong>fn1</strong>,<strong>fn2</strong>  )—它包含滑入滑出事件</p>
+  
+  <ul><li><code>fn1</code>函数代表滑入事件</li>
+  <li><code>fn2</code>函数代表滑出事件</li>
+  </ul>
+  
+  <p>只写一个代表执行相同的函数</p>
+</blockquote>
+
+
+
+<h4 id="2-oneventsselectordatafn-事件绑定">2、  <code>on(</code>events,[selector],[data],fn<code>)</code> 事件绑定</h4>
+
+<blockquote>
+  <p>bind和on类似jQuery 3.0中已弃用此方法，请用 on()代替。</p>
+</blockquote>
+
+<p>可以是event事件，系统 事件，表单事件,还可以<strong>自定义事件</strong> <br>
+<strong>events</strong>:一个或多个用空格分隔的事件类型和可选的命名空间，如”click”或”keydown.myPlugin” 。 <br>
+<strong>selector</strong>:一个选择器字符串用于过滤器的触发事件的<strong>选择器元素的后代</strong>。如果选择的&lt; null或省略，当它到达选定的元素，事件总是触发。 <br>
+<strong>data</strong>:当一个事件被触发时要传递event.data给事件处理函数。 <br>
+<strong>fn</strong>:该事件被触发时执行的函数。 false 值也可以做一个函数的简写，返回false。    </p>
+
+<ul><li><code>绑定单个事件</code> ，</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).on(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{})
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>$(<span class="hljs-string">'.box'</span>).on(<span class="hljs-string">'abc'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{})<span class="hljs-comment">//自定义abc事件，怎么触发后面讲</span>
+</div></code></pre>
+
+<ul><li><code>绑定多个事件</code> ，每个事件执行相同的内容</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).on(<span class="hljs-string">'click hover'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{})
+</div></code></pre>
+
+<ul><li><code>绑定多个事件</code> ，每个事件执行不同的内容</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).on({
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-string">'click'</span>：<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{}
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-string">'hover'</span>：<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{}
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>})
+</div></code></pre>
+
+<ul><li><code>事件委托</code> ，每个事件执行不同的内容</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'#div1'</span>).on(<span class="hljs-string">'click'</span>,<span class="hljs-string">'li'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    alert(<span class="hljs-string">'ok'</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>})
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>$(<span class="hljs-string">'#div1'</span>).append($(<span class="hljs-string">'&lt;li&gt;new&lt;/li&gt;'</span>));
+</div></code></pre>
+
+<p>on()方法 提供绑定事件处理程序所需的所有功能,替换旧的see .bind(), .delegate()</p>
+
+
+
+<h4 id="3onetypefn">3、<code>one(</code>type,fn<code>)</code></h4>
+
+<blockquote>
+  <p>为每一个匹配元素的特定事件（像click）绑定一个<strong>一次性的事件处理函数</strong></p>
+</blockquote>
+
+
+
+<h4 id="4off-取消事件">4、<code>off()</code> 取消事件</h4>
+
+<ul><li>ele.<code>off()</code> 取消对象所有事件</li>
+<li>ele.<code>off(</code>‘click’<code>)</code> 取消对象指定事件</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).on(<span class="hljs-string">'click hover'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>                alert(<span class="hljs-number">123</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>             $(<span class="hljs-string">'.box'</span>).off(<span class="hljs-string">'click'</span>);   
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>})
+</div></code></pre>
+
+
+
+<h3 id="triggertypedata-主动触发"><code>trigger(</code>type,[data]<code>)</code> 主动触发</h3>
+
+<p><strong>type</strong>:一个事件对象或者要触发的事件类型 <br>
+<strong>data</strong>:传递给事件处理函数的附加参数</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">"p"</span>).bind(<span class="hljs-string">"myEvent"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, message1, message2</span>) </span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>  alert(message1 + <span class="hljs-string">' '</span> + message2);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>});
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>$(<span class="hljs-string">"p"</span>).trigger(<span class="hljs-string">"myEvent"</span>, [<span class="hljs-string">"Hello"</span>,<span class="hljs-string">"World!"</span>]);
+</div></code></pre>
+
+<hr>
+
+
+
+<h3 id="triggerhandlertype-data"><code>triggerHandler(</code>type, [data]<code>)</code></h3>
+
+<blockquote>
+  <p>跟trigger一样，但不会执行浏览器默认动作，<strong>也不会产生事件冒泡</strong>。 <br>
+  这个方法的行为表现与trigger类似，但有以下三个主要区别：</p>
+  
+  <ul><li>第一，<strong>他不会触发浏览器默认事件</strong>。</li>
+  <li>第二，只触发jQuery对象集合中<strong>第一个元素</strong>的事件处理函数。</li>
+  <li>第三，这个方法的返回的是事件处理函数的返回值</li>
+  </ul>
+</blockquote>
+
+<hr>
+
+
+
+<h2 id="二事件对象">二、事件对象</h2>
+
+
+
+<h4 id="eventdata">event.<code>data</code></h4>
+
+<p>事件传递过来的数据</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">"a"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>) </span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    $(<span class="hljs-keyword">this</span>).bind(<span class="hljs-string">'click'</span>, {<span class="hljs-attr">index</span>:i}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>       alert(<span class="hljs-string">'my index is '</span> + e.data.index);
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    });
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>  });   
+</div></code></pre>
+
+
+
+<h4 id="eventtarget-事件源">event.<code>target</code> 事件源</h4>
+
+<p><strong>最初触发事件的DOM元素</strong>。 <br>
+这是注册事件时的对象，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
+
+
+
+<h4 id="eventtype-事件类型">event.<code>type</code> 事件类型</h4>
+
+
+
+<h4 id="eventpagex">event.<code>pageX</code></h4>
+
+<p>鼠标相对于文档的左边缘的位置。</p>
+
+
+
+<h4 id="eventpagey">event.<code>pageY</code></h4>
+
+<p>鼠标相对于文档的上边缘的位置。</p>
+
+
+
+<h4 id="eventwhich">event.<code>which</code></h4>
+
+<p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键或按钮</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span> $(<span class="hljs-string">'#whichkey'</span>).bind(<span class="hljs-string">'keydown'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span> $(<span class="hljs-string">'#log'</span>).html(e.type + <span class="hljs-string">': '</span> +  e.which );  });
+</div></code></pre>
+
+<p>event.<code>preventDefault()</code>   阻止默认事件</p>
+
+
+
+<h4 id="eventstoppropagation-阻止冒泡事件">event.<code>stopPropagation()</code> 阻止冒泡事件</h4>
+
+<blockquote>
+  <p>这个方法对 trigger() 来自定义的事件同样有效</p>
+</blockquote>
+
+
+
+<h4 id="return-false-即阻止冒泡又阻止默认">return false; 即阻止冒泡又阻止默认</h4>
+
+<hr>
+
+
+
+<h2 id="二遍历">二、遍历</h2>
+
+
+
+<h4 id="1each-fn">1、<code>each(</code> fn<code>)</code></h4>
+
+<blockquote>
+  <p>$(selector).each(function(index,element))为每个匹配元素规定运行的函数 <br>
+  index - 当前元素的 index 索引 <br>
+  element - 当前的元素（也可使用 “<code>this</code>” 选择器）</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span> $(<span class="hljs-string">"li"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index,ele</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>     <span class="hljs-built_in">console</span>.log(index);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>     <span class="hljs-built_in">console</span>.log(ele);
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>  });
+</div></code></pre>
+
+
+
+<h4 id="2map-fn">2、<code>map(</code> fn <code>)</code></h4>
+
+<blockquote>
+  <p>$(selector).map(function(index,element))为每个匹配元素规定运行的函数 <br>
+  <strong>index</strong> - 当前元素的 index 索引 <br>
+  <strong>element</strong> - 当前的元素（也可使用 “<code>this</code>” 选择器） <br>
+  map跟each很像，不同的是map返回的是jQuery 封装的数组</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">"p"</span>).append( $(<span class="hljs-string">"input"</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>  <span class="hljs-keyword">return</span> $(<span class="hljs-keyword">this</span>).val();
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>}).get().join(<span class="hljs-string">", "</span>) );
+</div></code></pre></div></body></html>

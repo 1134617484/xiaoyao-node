@@ -1,0 +1,250 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第五天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 设置节点属性  6 <br>
+1.4 内置对象    7 <br>
+1.5 日期函数  ( Date() )    8 <br>
+1.5.1 声明日期  8 <br>
+1.5.2 使用函数  8 <br>
+1.6 常用的日期的方法    9 <br>
+1.7 定时器 10 <br>
+1.8 倒计时 11 <br>
+1.8.1 定义自己的日子   13</p>
+
+<p>1.1 <br>
+复习 <br>
+      1. 循环 <br>
+            for(初始化; 退出条件; 增量)  {  } <br>
+            while(退出条件) {     } <br>
+            do {  语句 }  while(退出条件) <br>
+      2. switch( )   多选1 <br>
+            switch(参数) <br>
+{ <br>
+    case “参数1”： <br>
+    语句; <br>
+    break; <br>
+ case “参数2”： <br>
+    语句; <br>
+    break; <br>
+default:  <br>
+}</p>
+
+<ol start="3"><li rel="3">数组常用的方法 <br>
+  加内容   减内容      连接    转换 <br>
+  push();     向数组的后面添加内容 <br>
+  var arr = [1,2]    arr.push(“你好吗”);        结果 [1,2,”你好吗”]; <br>
+  unshift()   数组的前面添加 <br>
+ var arr = [1,2]    arr.unshift(“我很好”)   结果   [“我很好”,1,2]’ <br>
+ 删除 <br>
+<ol>
+<li rel="1">pop()    删除最后一个元素 <br>
+var arr = [1,2]    arr.pop();      [1]</li>
+<li rel="2">shift()   删除第一个元素 <br>
+var  arr = [1,2]    arr.shift()      [2] <br>
+注意： <br>
+var arr = [1,2,3,4]; <br>
+console.log(arr.push(8));     结果是  5      返回该数组的长度 <br>
+如果这么写： <br>
+var arr = [1,2,3,4]; <br>
+arr.push(8); <br>
+console.log(arr);      结果就是  【1,2,3,4,8】</li></ol></li>
+</ol>
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line">  var arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">12</span>];
+</div><div class="hljs-line">  console.log(arr.pop());     结果是 <span class="hljs-number">12</span>  返回最后一个元素
+</div><div class="hljs-line">  var arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+</div><div class="hljs-line">  arr.pop();
+</div><div class="hljs-line">  console.log(arr);      结果 就是  【<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>】
+</div><div class="hljs-line"> 连接    concat  
+</div><div class="hljs-line">join()    把数组转换为字符串   
+</div><div class="hljs-line">var  arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+</div></code></pre>
+
+<p>var test = arr.join(“-”); <br>
+    console.log(test)    1-2-3-4 <br>
+   var arr = [1,2,3,4]; <br>
+   arr.join(“*”); <br>
+   console.log(arr);      [1,2,3,4] <br>
+    split()   把字符串转换为 数组 <br>
+    var  txt = “1-2-3”; <br>
+    var  test = txt.split(“-”) <br>
+    console.log(test)     [“1”,”2”,”3”];</p>
+
+<ol start="4"><li rel="4">dom <br>
+我们操作最多的就是  元素节点      标签节点    标签    li span  </li>
+<li rel="5">节点的访问关系 <br>
+ 父级      parentNode <br>
+ this.parentNode     ==  我的父亲 <br>
+ 兄弟     nextSibling <br>
+ <ul>
+   <li> <div> <br>
+ 孩子们 <br>
+ childNodes       官方用法 <br>
+ 一般情况下，我们只需要元素节点 <br>
+   nodeType  来  判断 <br>
+   nodeType == 1    元素节点 <br>
+   nodeType == 2    属性节点 <br>
+   nodeType == 3    文本节点  <br>
+ <a href="http://”xxxxx”" target="_blank"> 内容  </a> <br>
+children    不是官方写法       所有的孩子   亲儿子 <br>
+ie 678 把注释节点 也算  可以避免  <br>
+1.2 设置节点属性 </div></li>
+<li rel="1"><p>获取节点属性 <br>
+getAttribute(属性)      获取属性 <br>
+通过这个方法，可以得到 某些元素的  某些属性 。 <br>
+alert(demo.getAttribute(“title”)); <br>
+弹出对话框：    弹出title里面的内容</p></li>
+<li rel="2"><p>设置节点属性 <br>
+setAttribute(“属性”,”值”); <br>
+比如说，我们想要把 一个 类名  改为   demo <br>
+div.setAttribute(“class”,”demo”);   </p></li>
+<li rel="3">删除某个属性 <br>
+removeAttribute(“属性”);  <br>
+demo.removeAttribute(“title”) <br>
+  这个盒子就没有title  属性  给删掉了  。 <br>
+A.appendChild(B);  <br>
+B 一定是 A 孩子      同时  b 放到了a 的里面  装到里面去了  最后面。   b 放到  a 里面  <br>
+A.insertBefore（B，C） <br>
+B  C  都是 A 的孩子 <br>
+把 b  放到  a 里面 ，但是 是 c 的前面 <br>
+1.3 内置对象 <br>
+内置对象：  内置对象就是指这个语言自带的一些对象，供开发者使用，这些对象提供了一些常用的或是最基本而必要的功能。 <br>
+手机买来就能发短信      就能打电话 <br>
+1.4 日期函数  ( Date() ) <br>
+这个函数 （对象） 可以设置我们本地 日期。   年月日 时分秒 <br>
+1.4.1 声明日期  <br>
+var  date = new Date();  <br>
+创造声明一个新的日期函数   赋值给了  date  <br>
+var arr = new Array(); <br>
+1.4.2 使用函数  <br>
+得到 毫秒数    ms        s   m   h <br>
+从 1970  年1 月1号      unix      32位      68年 <br>
+2038     千年虫       64 位 <br>
+var  date = new Date(); <br>
+date.getTime(); <br>
+date.valueOf();        得到 距离 1970年的毫秒数 <br>
+var date  = new Date();  // 声明 <br>
+console.log(date.getTime());  // 提倡使用的 <br>
+console.log(date.valueOf());</li>
+</ul></li></ol>
+
+<p>// 直接使用 <br>
+console.log(Date.now()); <br>
+console.log(+new Date());</p>
+
+<p>1.5常用的日期的方法 <br>
+获取日期和时间 <br>
+getDate()                  获取日 1-31 <br>
+getDay ()                  获取星期 0-6 <br>
+getMonth ()                获取月  0-11 <br>
+getFullYear ()              获取完整年份（浏览器都支持） <br>
+getHours ()                获取小时 0-23 <br>
+getMinutes ()                  获取分钟 0-59 <br>
+getSeconds ()                  获取秒  0-59 <br>
+getMilliseconds ()            获取当前的毫秒  <br>
+getTime ()         返回累计毫秒数(从1970/1/1午夜)</p>
+
+<p>如果是上午  ，我打开页面   页面中显示的是  <br>
+  上午好，好好学习     显示的是上午的图片 <br>
+ 如果是下午  我打开页面   页面中显示的是  <br>
+  下午好，天天向上     显示的是下午的图片 <br>
+  根据当前的小时来判断     if  </p>
+
+<p>1.6定时器 </p>
+
+<p>很多情况下，一些操作不需要人工干预， 代码自己会不断的去执行 。 <br>
+而且 会有 时间的绑定  。  比如每隔 5秒钟就去执行一次事件。  <br>
+   我们可以设定时间   让某个动作不断的去执行 。 这个我们再js 里面用定时器来表示。 <br>
+   window.setInterval(“执行的函数”,间隔时间)  <br>
+       正确的写法: <br>
+        setInterval(fun, 1000);      1000 ms   毫秒 <br>
+        每隔1秒钟，就去执行一次 fun 这个函数. <br>
+        setInterval(“fun()”,1000)     可以用  <br>
+        setInterval( function(){} , 1000 ) <br>
+        setInterval(fun(),1000)  错误的  </p>
+
+<p>定时器 特别的像  for 循环，但是我 的定时器最大的特点在于， 自动，可以设定时间。 <br>
+1.7  倒计时  <br>
+好比，今年你多大了  ？ <br>
+ 2015  -   1990          25 <br>
+我们要计算的 倒计时 <br>
+有一个最终时间      12月12日  <br>
+有一个现在时间      11月 13日 <br>
+倒计时 =  用 将来的时间  -   现在的时间 <br>
+问题：    用 毫秒减去      现在距离 1970年1 <br>
+                           将来时间 距离 1970 毫秒数 <br>
+用将来的毫秒数 -  现在的毫秒数   不断转换就可以了 <br>
+ <br>
+ <br>
+ <br>
+     <br>
+     <br>
+     <br>
+        body{ <br>
+            font-size:30px; <br>
+            text-align: center; <br>
+            color:red; <br>
+        } <br>
+ <br>
+     <br>
+        window.onload = function(){ <br>
+            var demo = document.getElementById("demo"); <br>
+            var endTime = new Date("2015/12/12 17:30:00"); // 最终时间 <br>
+            setInterval(clock,1000); // 开启定时器 <br>
+            function clock(){ <br>
+                var nowTime = new Date(); // 一定是要获取最新的时间 <br>
+                //  console.log(nowTime.getTime());  获得自己的毫秒 <br>
+                var second = parseInt((endTime.getTime() - nowTime.getTime()) / 1000); <br>
+                // 用将来的时间毫秒 -  现在的毫秒  / 1000 得到的 还剩下的秒  可能处不断 取整 <br>
+               // console.log(second); <br>
+                 // 一小时 3600 秒 <br>
+                // second / 3600  一共的小时数  /24   天数 <br>
+                var d = parseInt(second / 3600 / 24);  //天数 <br>
+                //console.log(d); <br>
+                var h = parseInt(second / 3600  % 24)  // 小时 <br>
+               // console.log(h); <br>
+                var m = parseInt(second / 60  % 60); <br>
+                //console.log(m); <br>
+                var s = parseInt(second % 60); // 当前的秒 <br>
+                console.log(s); <br>
+               /* if(d&lt;10) <br>
+                { <br>
+                    d = "0" + d; <br>
+                }*/ <br>
+                d&lt;10 ? d="0"+d : d; <br>
+                h&lt;10 ? h="0"+h : h; <br>
+                m&lt;10 ? m="0"+m : m; <br>
+                s&lt;10 ? s="0"+s : s; <br>
+                demo.innerHTML = "距离抢购时间还剩: "+d+"天 "+h+"小时 "+m+"分钟 "+s+"秒"; <br>
+            } <br>
+        } <br>
+ <br>
+ <br>
+</p>
+
+<div id="demo"></div>
+
+<p></p>
+
+<p>1.7.1定义自己的日子  <br>
+  var endTime = new Date(“2015/12/12”); <br>
+  如果date 括号里面写日期  就是 自己定义的时间 <br>
+  如果 date括号里面不写日期 ， 就是当前时间 。 <br>
+  new Date(“2015/12/12 17:30:00”);  <br>
+  日期和时分秒中间 有空格隔开  </p></div></body></html>

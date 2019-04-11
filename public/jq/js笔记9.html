@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第九天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 模拟垂直滚动条 5 <br>
+1.4 Html基本结构访问方法    7 <br>
+1.5 scroll家族    7 <br>
+1.5.1 scrollTop    scrollLeft   7 <br>
+1.5.2 怎么得到scrollTop 8 <br>
+1.5.3 JSON  9 <br>
+1.5.4 判断是不是怪异模式的浏览器 10 <br>
+1.6 scrollTo(x,y)   10</p>
+
+<p>1.1 <br>
+复习 <br>
+ offset   自己的 偏移 <br>
+ offsetWidth    得到自己的宽度 <br>
+ offsetHeight <br>
+  构成 ：   width  +   padding  +  border  <br>
+ div    width 200   border 3px    padding-right: 15px <br>
+ div  offsetWidth =    200 +  6  +  15  =  221</p>
+
+<ol start="2"><li rel="2">offsetLeft      offsetTop <br>
+div.offsetLeft <br>
+得到距离 这个 div 最近的 带有定位的 父 盒子   左边距离</li>
+<li rel="3">offsetParent      返回自己的父亲元素   （带有定位的） <br>
+parentNode    这个返回亲父亲 不管父亲是否带有定位</li>
+<li rel="4">style.top   offsetTop <br>
+offsetTop   只读    只可以得到结果 但是不能赋值 <br>
+style.top    能得到 （行内式 ）    但是可以给值 <br>
+style.top   得到的是  25px <br>
+offsetTop   得到的是 25   </li>
+<li rel="5">事件对象   event <br>
+div.onclick =  function(event) {  }   event 是点击的事件对象  <br>
+event 集合点击事件的相关信息 <br>
+pageX    文档的   参考点 <br>
+clientX    可视区域 <br>
+ScreenX   屏幕  <br>
+6.常用事件 <br>
+   onmouseover     经过 <br>
+   onmouseout      离开 <br>
+   onmousemove     鼠标移动 <br>
+   var num = 0; <br>
+  div.onmouseover = function() { num++;  console.log(num))}  1  <br>
+  div.onmousemove = function() { num++;  console.log(num))} <br>
+   onmousedown   按下鼠标  <br>
+   onmouseup      弹起鼠标 <br>
+   拖拽：  先按下鼠标 然后  移动鼠标 <br>
+   bar.onmousedown = funtion() { <br>
+           document.onmousemove = function() {}  <br>
+   } <br>
+最大 window  对象          document对象 <br>
+window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); ie</li>
+</ol>
+
+<p>1.2模拟垂直滚动条</p>
+
+<p>红色盒子高度计算公式： 容器的高度 / 内容的高度 * 容器的高度</p>
+
+<p>红色方块移动一像素 ，我们的内容盒子移动多少呢？ <br>
+ （内容盒子高度 -  大盒子高度） /  (大盒子高度 - 红色盒子的高度)    计算倍数  <br>
+ （内容盒子高度 -  大盒子高度） /  (大盒子高度 - 红色盒子的高度)   * 红色盒子移动的数值 <br>
+1.3  Html基本结构访问方法 <br>
+  文档是 document <br>
+  html   body   head <br>
+  document.head <br>
+  document.body  <br>
+  document.title <br>
+  没有 document.html  取而代之的是  document.documentElement; <br>
+1.4  scroll家族 <br>
+ Offset  自己的   偏移 <br>
+ scroll   滚动的 <br>
+1.4.1 scrollTop    scrollLeft <br>
+ scrollTop     被卷去的头部 <br>
+ 它就是当你滑动滚轮浏览网页的时候网页隐藏在屏幕上方的距离</p>
+
+<p>1.4.2怎么得到scrollTop <br>
+我们学习一个事件 ：  页面滚动效果 <br>
+window.onscroll = function() { 页面滚动语句  } <br>
+谷歌浏览器 和没有声明 DTD   ： <br>
+  document.body.scrollTop; <br>
+火狐 和其他浏览器 <br>
+  document.documentElement.scrollTop; <br>
+ ie9+  和 最新浏览器   都认识 <br>
+  window.pageXOffset;     pageYOffset  （scrollTop） <br>
+ 兼容性写法：  </p>
+
+<p>1   var scrollTop = window.pageYOffset || document.documentElement.scrollTop <br>
+2          || document.body.scrollTop || 0; <br>
+1.4.3 JSON <br>
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，我们称之为JavaScript对象表示法。使用JSON进行数据传输的优势之一。JSON实际上就是JavaScript  <br>
+Json很像我们学过的样式条； <br>
+var myjson={k:v,k:v,k:v…}    键值对   key: value   color: red; <br>
+Json一般就是被当做一个配置单用； <br>
+我们的网站，可以注册会员： <br>
+   姓名： 李白  <br>
+   年龄:   500 <br>
+   职业：  it <br>
+xml   </p>
+
+<p>json  对象 结构书写： </p>
+
+<p>var json = { key: value， key1:value } <br>
+  var json = {name: “李白”,age: 15} <br>
+  使用： <br>
+    json名.属性     json.name        李白 <br>
+var json1 = {name :”刘德华”,age: 55}; <br>
+console.log(json1.name);  // 输出名字  刘德华 <br>
+console.log(json1.age);  // 输出年龄  55 <br>
+1.4.4判断是不是怪异模式的浏览器 <br>
+document.compatMode == “CSS1Compat”</p>
+
+<p>document.compatMode === “BackCompat” <br>
+BackCompat  未声明 <br>
+CSS1Compat  已经声明 <br>
+注意大小写  <br>
+1.5 scrollTo(x,y) <br>
+window.scrollTo(15,15);  <br>
+方法可把内容滚动到指定的坐标。 <br>
+格式： <br>
+scrollTo(xpos,ypos) <br>
+xpos    必需。要在窗口文档显示区左上角显示的文档的 x 坐标。 <br>
+ypos必需。要在窗口文档显示区左上角显示的文档的 y 坐标 <br>
+因为我们的网页大部分都没有水平滚动条，所以，这个x 不太常用。</p></div></body></html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html><html><head><title>42-第二十八章jQuery $() 筛选 HMTL （一）</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="42-第二十八章jquery-筛选-hmtl-一">42-第二十八章jQuery $() 筛选 HMTL （一）</h1>
+
+<p></p>
+
+<hr>
+
+
+
+<h2 id="一下载jquery">一下载jQuery</h2>
+
+<blockquote>
+  <p>jQuery下载地址：<a href="http://jquery.com/" target="_blank">http://jquery.com/</a> <br>
+  <code>jQuery.js</code>  未压缩版本 <br>
+   <code>jQuery.min.js</code> 压缩版本</p>
+</blockquote>
+
+<hr>
+
+<p>jQuery 是一个功能强大的<code>JavaScript 库</code>。 <br>
+jQuery 极大地简化了 JavaScript 编程。</p>
+
+<ul><li>避免了浏览器的兼容问题。</li>
+</ul>
+
+<hr>
+
+
+
+<h2 id="一jquery函数">一、jQuery()函数</h2>
+
+<blockquote>
+  <p><code>jQuery</code>另一个名称<code>$</code>,jQuery()等同于<code>$()</code></p>
+</blockquote>
+
+<p><strong>jQuery设计精髓</strong></p>
+
+<ul><li>强大的<code>函数式编程</code></li>
+<li><code>链式操作</code></li>
+<li><code>getter</code> <code>setter</code>是合体的</li>
+</ul>
+
+<p><code>getter</code>是获取中集合中的一个的值，<code>setter</code>是设置集合中的每一个</p>
+
+<hr>
+
+
+
+<h2 id="二的四大调用方式">二、<code>$()</code>的四大调用方式</h2>
+
+
+
+<h4 id="1-function">1、$( <code>function(){}</code> )</h4>
+
+<blockquote>
+  <p>文档加载完毕执行函数，等同于 <code>DOMContentLoaded</code>,旧的写法$(document).ready(function(){})</p>
+</blockquote>
+
+
+
+<h4 id="2-selecotrstart">2、$( <code>selecotr</code>,start )</h4>
+
+<blockquote>
+  <p>selecotr 是一个CSS选择器, <br>
+   start   可选 在该元素下或该子元素下面中去匹配</p>
+</blockquote>
+
+<p><code>length</code>长度</p>
+
+<blockquote>
+  <p>jQuery 对象中元素的个数。 <br>
+  这个函数的返回值与 jQuery 对象的size()属性一致。</p>
+</blockquote>
+
+<ul><li><code>css( )</code>  获取/设置样式</li>
+</ul>
+
+<blockquote>
+  <p><code>css( key,val )</code>    <code>参数形式</code> <br>
+  css( {key: val} )   <code>对象形式</code>,可以一次<strong>赋值多个</strong>属性,val可以是<strong>函数</strong>——-很多值都可以用<code>return 函数</code></p>
+  
+  <ul><li>可以使用<strong>连字符</strong> :<code>background-color</code> <strong>驼峰名属性</strong>:<code>backgroundColor</code></li>
+  <li><strong>获取计算后的css样式</strong></li>
+  <li>不能获取复合样式</li>
+  </ul>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).css(<span class="hljs-string">'font-size'</span>)
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>$(<span class="hljs-string">'.box'</span>).css({font-size：fucntion( i,curval){
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    <span class="hljs-built_in">console</span>.log( i )
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*<span class="hljs-built_in">parseInt</span>(curval );
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>}})
+</div></code></pre>
+
+<ul><li><code>click( )</code>  点击事件</li>
+</ul>
+
+<blockquote>
+  <p>click( function(){} ) 参数是一个函数</p>
+</blockquote>
+
+<ul><li><code>selector</code> 属性</li>
+</ul>
+
+<blockquote>
+  <p>创建jquery对象时<code>css选择器字符串</code></p>
+</blockquote>
+
+<ul><li><code>jquery</code>  jquery版本号</li>
+</ul>
+
+<blockquote>
+  <p>所有jquery对象下都有 jquery属性</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs stylus"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>)<span class="hljs-selector-class">.jquery</span> <span class="hljs-comment">//</span>
+</div></code></pre>
+
+
+
+<h4 id="3-element">3、$( <code>element</code> )</h4>
+
+<blockquote>
+  <p>传递给一个<code>Element</code>,<code>document</code>,<code>window</code> 会把对象转为jQuery对象</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-built_in">document</span>) 
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>$(<span class="hljs-keyword">this</span>)
+</div></code></pre>
+
+
+
+<h4 id="4-tagobject">4、$( <code>tag</code>,object )</h4>
+
+<blockquote>
+  <p>tag创建元素，是字符串标签，得带上<code>&lt;&gt;</code>括号 <br>
+  object 是一个对象，对象的属性可以是<code>csss,html,text,width,height,offset,val</code>或data,或者是事件类型，</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs arduino"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'&lt;img/&gt;'</span>,{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    src:url,
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    css:{borderWidth:<span class="hljs-number">5</span>},
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    <span class="hljs-built_in">click</span>:handerClick  <span class="hljs-comment">//添加事件</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>})
+</div></code></pre>
+
+<hr>
+
+
+
+<h2 id="三筛选">三、筛选</h2>
+
+
+
+<h4 id="1eq-下标">1、<code>eq()</code> ————————-下标</h4>
+
+<blockquote>
+  <p>集合中的第几个</p>
+</blockquote>
+
+
+
+<h4 id="2index-索引">2、<code>index()</code> ———————索引</h4>
+
+<blockquote>
+  <p>在<strong>索引就在所有兄弟中的位置</strong></p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"obj"</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+</span></div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>alert( $(<span class="hljs-string">'#obj'</span>).index() );  <span class="hljs-comment">//索引就是当前元素在所有兄弟节点中的位置</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+
+
+
+<h4 id="3filterselector有">3、<code>filter(</code>selector<code>)</code>——————有</h4>
+
+
+
+<h4 id="4notselector-没有">4、<code>not(</code>selector<code>)</code> ——————– 没有</h4>
+
+
+
+<h4 id="5first-第一个">5、<code>first()</code> ——————– 第一个</h4>
+
+
+
+<h4 id="6last-最后一个">6、<code>last()</code> ——————– 最后一个</h4>
+
+
+
+<h4 id="7has-子元素包含">7、<code>has()</code>———————-子元素包含</h4>
+
+<blockquote>
+  <p><code>has(</code> selector <code>)</code>匹配子元素中包含selector元素的父级</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs mel"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$（<span class="hljs-string">'.box'</span>）.<span class="hljs-keyword">filter</span>( <span class="hljs-string">'span'</span>) <span class="hljs-comment">//</span>
+</div></code></pre>
+
+
+
+<h4 id="8add-selector-添加jquery对象">8、<code>add(</code> selector<code>)</code> 添加jQuery对象</h4>
+
+<p>把与表达式匹配的元素添加到jQuery对象中。形成两个表达式匹配的元素结果集</p>
+
+
+
+<h4 id="9next上一个兄弟">9、<code>next()</code>————————上一个兄弟</h4>
+
+
+
+<h4 id="10prev-下一个兄弟">10、<code>prev()</code> ———————–下一个兄弟</h4>
+
+
+
+<h4 id="11siblingsselector-除自身外的兄弟节点">11<code>siblings(</code>[selector]<code>)</code>——- 除自身外的兄弟节点</h4>
+
+<blockquote>
+  <p>用于筛选<strong>同辈元素</strong>的表达式</p>
+</blockquote>
+
+
+
+<h4 id="12children子元素">12、<code>children()</code>——————子元素</h4>
+
+<blockquote>
+  <p>children() <strong>只考虑子元素</strong>而不考虑所有后代元素 <br>
+  <code>children(</code>selector<code>)</code>通过可选的表达式来<strong>过滤</strong>所匹配的子元素</p>
+</blockquote>
+
+
+
+<h4 id="13find-查找指定子元素">13、<code>find()</code> ———————– 查找指定子元素</h4>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs clean"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>obj.`find(` selector`)` <span class="hljs-comment">// obj 下的selector元素</span>
+</div></code></pre>
+
+<hr>
+
+
+
+<h2 id="三html">三、HTML</h2>
+
+
+
+<h4 id="1class操作">1、class操作</h4>
+
+<p><code>hasClass()-</code>————————–是否包含某一个class，不能用函数 <br>
+<code>addClass()</code> —————-<code>添加</code>一个或多个类 <br>
+<code>removeClass()</code> ———- <code>删除</code>一个或多个类 <br>
+<code>toggleClass()</code> ————<code>添加/删除</code>类的切换操作</p>
+
+<hr>
+
+
+
+<h4 id="2设置获取-元素内容">2、设置/获取 元素内容</h4>
+
+<p><code>text()</code> - 设置或返回所选元素的文本内容—- <br>
+<code>html()</code> - 设置集合第一或返回 所选所有元素的内容（<code>包括 HTML</code> 标记） <br>
+<code>val()</code> - 设置或返回表单字段的值</p>
+
+<hr>
+
+
+
+<h4 id="2html属性">2、HTML属性</h4>
+
+<p><code>attr()</code>————–设置/获取属性</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs asciidoc"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>attr( key,val )
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-comment">/////
+</span></div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>attr( key,function(){ return val;} )
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>///////
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>attr( { key:val } )
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-comment">///////////
+</span></div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>attr( {
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>    key1:val1;
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>    key2:val2;
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>    key3:val3;
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>}  )
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>/////
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>attr( {
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span><span class="hljs-code">    key1:function(){ return val;};</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span>}  )
+</div></code></pre>
+
+<p><code>removeAttr()</code>————–设置/获取属性</p>
+
+<ul><li><code>data()</code> 获取/设置 元素数据—-不可传递函数</li>
+<li><code>removeData()</code> 移除数据</li>
+</ul>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs gams"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-symbol">$</span>( <span class="hljs-string">'.box'</span>).data(<span class="hljs-string">'x'</span>,<span class="hljs-number">1</span>)            <span class="hljs-comment">//设置</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-symbol">$</span>( <span class="hljs-string">'.box'</span>).data(<span class="hljs-string">'x'</span>)              <span class="hljs-comment">//获取</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-symbol">$</span>( <span class="hljs-string">'.box'</span>).removeData(<span class="hljs-string">'x'</span>)        <span class="hljs-comment">//移除</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-comment">///////////////</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span><span class="hljs-comment">//可以获取元素自定义data-xxx属性</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>&lt;<span class="hljs-built-in">div</span> id=<span class="hljs-string">'box'</span> data-scroll=<span class="hljs-string">'100'</span>&gt;&lt;/<span class="hljs-built-in">div</span>&gt;
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>&lt;script&gt;
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span><span class="hljs-symbol">$</span>( <span class="hljs-string">'.box'</span>).data(<span class="hljs-string">'scroll'</span>);<span class="hljs-comment">//100</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>&lt;/script&gt;
+</div></code></pre>
+
+
+
+<h4 id="3盒模型">3、盒模型</h4>
+
+<p><code>width()</code> ———————<code>获取/设置</code>宽度</p>
+
+<blockquote>
+  <p>border-box 下，获取的（包含padding border），设置的仅仅content的值 （不包含padding border）</p>
+</blockquote>
+
+<p><code>innerWidth()</code>—————获取宽度+padding <br>
+<code>outerWidth()</code>————–获取宽度+padding+border <br>
+<code>outerWidth(</code> true<code>)</code>————–获取宽度+padding+border+margin</p>
+
+<hr>
+
+
+
+<h4 id="4位置">4、位置</h4>
+
+<p>1、<code>offset()</code></p>
+
+<blockquote>
+  <p>以文档为参考来计算位置，是一个对象，带有top,left值 。相当于是固定定位 <br>
+  <code>offset().top</code> <br>
+  <code>offset().left</code></p>
+</blockquote>
+
+<p>设置</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> pos = $(<span class="hljs-string">'.box'</span>).offset();
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>pos.top +=<span class="hljs-number">100</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span> $(<span class="hljs-string">'.box'</span>).offset( pos ) <span class="hljs-comment">//设置新坐标</span>
+</div></code></pre>
+
+<p>2、<code>parent()</code> —父级 <br>
+3、<code>offsetParent()</code> —定位父级 <br>
+4、<code>position()</code>    —–到定位父级的偏移量</p>
+
+<blockquote>
+  <p>position()也是一个对象，包含top,left。是到定位父级的偏移量—–只读</p>
+</blockquote>
+
+<p>5、<code>scrollTop()</code> / <code>scrollLeft()</code>— 设置/获取 元素滚动条位置</p>
+
+<blockquote>
+  <p>可以用于<code>window</code>,<code>document</code>上，不传递函数</p>
+</blockquote>
+
+<p>分屏滚动</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">page</span>(<span class="hljs-params">n</span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    <span class="hljs-keyword">var</span> w = $(<span class="hljs-built_in">window</span>);                    
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    <span class="hljs-keyword">var</span> pagesize = w.height();            <span class="hljs-comment">//得到页面高度</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    <span class="hljs-keyword">var</span> current= w.scrollTop();           <span class="hljs-comment">//得到当前滚动的高度</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    w.scrollTop( current + n*pagesize )   <span class="hljs-comment">//设置新的滚动高度</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>}
+</div></code></pre>
+
+<hr></div></body></html>

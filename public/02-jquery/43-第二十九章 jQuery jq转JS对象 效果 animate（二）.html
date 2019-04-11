@@ -1,0 +1,284 @@
+<!DOCTYPE html><html><head><title>43-第二十九章 jQuery jq转JS对象 效果 animate（二）</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="43-第二十九章-jquery-jq转js对象-效果-animate二">43-第二十九章 jQuery jq转JS对象 效果 animate（二）</h1>
+
+<p></p>
+
+
+
+<h2 id="一jquery转js">一、jQuery转js</h2>
+
+<hr>
+
+
+
+<h4 id="getindex-index的值为下标会把jq代理对象转为原生js对象"><code>get(</code>index<code>)</code>      :   index的值为下标,会把JQ代理对象转为原生JS对象</h4>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>alert(  $(<span class="hljs-string">'#div1'</span>).get(<span class="hljs-number">0</span>).innerHTML )
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>})
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>
+</div></code></pre>
+
+
+
+<h4 id="title"><code>[]</code></h4>
+
+<hr>
+
+
+
+<h2 id="二效果">二、效果</h2>
+
+<hr>
+
+
+
+<h4 id="1-showspeedeasingfn显示-hidespeedeasingfn隐藏">1、 <code>show(</code>[speed],[easing],[fn]<code>)</code>显示/ <code>hide(</code>[speed],[easing],[fn]<code>)</code>隐藏</h4>
+
+<blockquote>
+  <p><strong>speed</strong>:动画时长的毫秒数值(如：1000)，或字符串(“slow”,”normal”, or “fast”) <br>
+  <strong>easing:(Optional)</strong> 用来指定切换效果，默认是”swing”，可用参数”linear” <br>
+  <strong>fn</strong>:回调函数</p>
+</blockquote>
+
+
+
+<h4 id="2-togglespeedeasingfn-显示隐藏">2、 <code>toggle(</code>[speed],[easing],[fn]<code>)</code>  显示/隐藏</h4>
+
+<blockquote>
+  <p><strong>speed</strong>: 隐藏/显示 效果的速度。默认是 “<code>0</code>“毫秒。可能的值：<code>slow</code>，normal，<code>fast</code>。” <br>
+   <strong>easing:(Optional)</strong> 用来指定切换效果，默认是”swing”，可用参数”<code>linear</code>” <br>
+   <strong>fn</strong>:   回调函数。</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs mel"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">'.box'</span>).<span class="hljs-keyword">toggle</span>(); 
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>$(<span class="hljs-string">'.box'</span>).<span class="hljs-keyword">toggle</span>(<span class="hljs-number">200</span>); <span class="hljs-comment">//200毫秒</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>$(<span class="hljs-string">'.box'</span>).<span class="hljs-keyword">toggle</span>(<span class="hljs-number">200</span>,<span class="hljs-string">'linear'</span>); 
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>$(<span class="hljs-string">'.box'</span>).<span class="hljs-keyword">toggle</span>(<span class="hljs-number">200</span>,<span class="hljs-string">'linear'</span>,function(){ alert(<span class="hljs-number">1</span>) }); 
+</div></code></pre>
+
+<p><strong>toggle(</strong><code>true</code><strong>)</strong> 等同于show() ,<strong>toggle(</strong><code>false</code><strong>)</strong> 等同于hide( ) </p>
+
+<hr>
+
+
+
+<h4 id="3fadeinspeedeasingfn-淡入fadeoutspeedeasingfn淡出">3、<code>fadeIn(</code>[speed],[easing],[fn]<code>)</code> 淡入/<code>fadeOut(</code>[speed],[easing],[fn]<code>)</code>淡出</h4>
+
+<blockquote>
+  <p><strong>speed</strong>:动画时长的毫秒数值(如：1000)，或字符串(“slow”,”normal”, or “fast”) <br>
+  <strong>easing:(Optional)</strong> 用来指定切换效果，默认是”swing”，可用参数”linear” <br>
+  <strong>fn</strong>:回调函数</p>
+</blockquote>
+
+
+
+<h4 id="5-fadetogglespeedeasingfn-淡入淡出效果">5、 <code>fadeToggle(</code>[speed],[easing],[fn]<code>)</code> 淡入/淡出效果</h4>
+
+<blockquote>
+  <p><strong>speed</strong>:动画时长的毫秒数值(如：1000)，或字符串(“slow”,”normal”, or “fast”) <br>
+  <strong>easing:(Optional)</strong> 用来指定切换效果，默认是”swing”，可用参数”linear” <br>
+  <strong>fn</strong>:回调函数</p>
+</blockquote>
+
+<hr>
+
+
+
+<h4 id="4-fadetospeedoeasingfn-到指定透明度">4、 <code>fadeTo(</code>[speed],o,[easing],[fn]<code>)</code> 到指定透明度</h4>
+
+<p>把所有匹配元素的不透明度以渐进方式调整到指定的不透明度</p>
+
+<blockquote>
+  <p><strong>speed</strong>:动画时长的毫秒数值(如：1000)，或字符串(“slow”,”normal”, or “fast”) <br>
+  <strong>opacity</strong>:一个<code>0</code>至<code>1</code>之间表示透明度的数字。 <br>
+  easing:(Optional) 用来指定切换效果，默认是”swing”，可用参数”linear” <br>
+  fn:回调函数</p>
+</blockquote>
+
+<hr>
+
+
+
+<h4 id="5slidedownspeedeasingfn-展开slideupspeedeasingfn-收缩">5、<code>slideDown(</code>[speed],[easing],[fn] <code>)</code> 展开/<code>slideUp(</code>[speed],[easing],[fn] <code>)</code>  收缩</h4>
+
+<blockquote>
+  <p><strong>speed</strong>:动画时长的毫秒数值(如：1000)，或字符串(“slow”,”normal”, or “fast”) <br>
+  <strong>opacity</strong>:一个<code>0</code>至<code>1</code>之间表示透明度的数字。 <br>
+  easing:(Optional) 用来指定切换效果，默认是”swing”，可用参数”linear” <br>
+  fn:回调函数</p>
+</blockquote>
+
+
+
+<h4 id="6slidetogglespeedeasingfn">6、<code>slideToggle(</code>[speed],[easing],[fn] <code>)</code></h4>
+
+<hr>
+
+
+
+<h4 id="7animate-动画">7、animate 动画</h4>
+
+<p><strong>animate方式一：</strong><code>animate(</code>styles,[speed],[easing],[callback]<code>)</code></p>
+
+<blockquote>
+  <p><strong>styles</strong>: CSS 样式和值  <br>
+  <strong>speed</strong>:可选。规定动画的速度。默认是 “<code>normal</code>“。 <br>
+              可能的值： <br>
+              <code>毫秒</code> （比如 <code>1500</code>） <br>
+              “<code>slow</code>” <br>
+              “<code>normal</code>” <br>
+              “<code>fast</code>” <br>
+  <strong>easing</strong>:.默认jQuery提供”<code>linear</code>” 和 “<code>swing</code>“. 要使用的擦除效果的名称(需要插件支持) <br>
+  <strong>callback</strong>:回调函数</p>
+</blockquote>
+
+<hr>
+
+<p><strong>animate方式二</strong>：<code>animate(</code>styles,[options]<code>)</code></p>
+
+<blockquote>
+  <p><strong>styles</strong>: CSS 样式和值  <br>
+  <strong>options</strong>可选。规定动画的额外选项。 <br>
+  可能的值： <br>
+  speed - 设置动画的速度 <br>
+  easing - 规定要使用的 easing 函数 <br>
+  callback - 规定动画完成之后要执行的函数 <br>
+  <code>step</code> - 规定动画的每一步完成之后要执行的函数 <br>
+  queue - 布尔值。指示是否在效果队列中放置动画。如果为 false，则动画将立即开始 <br>
+  specialEasing - 来自 styles 参数的一个或多个 CSS 属性的映射，以及它们的对应 easing 函数</p>
+</blockquote>
+
+<p><strong>注释</strong>：</p>
+
+<ul><li>使用 “<code>+=</code>” 或 “<code>-=</code>” 来创建<code>相对动画</code></li>
+<li>您甚至可以把属性的动画值设置为 “show”、”hide” 或 “toggle”</li>
+<li>animate() 调用，jQuery 会创建包含这些方法调用的“内部”队列。然后逐一运行这些 animate 调用。</li>
+</ul>
+
+<hr>
+
+
+
+<h4 id="8stopstopallgotoend">8、<code>stop(</code>[stopAll],[goToEnd]<code>)</code></h4>
+
+<blockquote>
+  <p>stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画 <br>
+  <strong>stopAll</strong> 可选的  参数规定<strong>是否应该清除动画队列</strong>。默认是 <code>false</code>，即仅停止活动的动画，允许任何排入队列的动画向后执行。 <br>
+   <strong>goToEnd</strong> 可选的 参数规定<strong>是否立即完成当前动画</strong>。默认是 <code>false</code>。 <br>
+  因此，默认地，<code>stop() 会清除在被选元素上指定的当前动画</code>。</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> box=$(<span class="hljs-string">"#div1"</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-keyword">var</span> num = <span class="hljs-number">0</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>box.mouseover(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    box.animate({<span class="hljs-attr">width</span>:<span class="hljs-number">400</span>},<span class="hljs-number">2000</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{num++;<span class="hljs-built_in">console</span>.log(num);});
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    box.animate({<span class="hljs-attr">height</span>:<span class="hljs-number">400</span>},<span class="hljs-number">2000</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{num++;<span class="hljs-built_in">console</span>.log(num);});
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>    box.click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>        box.stop(<span class="hljs-literal">true</span>,<span class="hljs-literal">true</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>    })
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>})
+</div></code></pre>
+
+
+
+<h4 id="9finish-queue-立即完成动画">9、<code>finish(</code> [queue ] <code>)</code>立即完成动画</h4>
+
+<blockquote>
+  <p>.finish()方法和.stop(true, true)很相似，.stop(true, true)将清除队列，并且目前的动画<strong>跳转到其最终值</strong></p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">"#do"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    $(<span class="hljs-string">".mytest"</span>).show(<span class="hljs-number">1000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">left</span>:<span class="hljs-string">"+=200"</span>},<span class="hljs-number">3000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">top</span>:<span class="hljs-string">"+=50"</span>},<span class="hljs-number">2000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    $(<span class="hljs-string">".mytest"</span>).text(<span class="hljs-string">"动画完成"</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>  })
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>  $(<span class="hljs-string">"#count"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>    <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".mytest"</span>).queue().length)
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>  })
+</div></code></pre>
+
+
+
+<h4 id="10queue-队列">10、queue() 队列</h4>
+
+<p><strong>一：</strong><code>queue(</code>[queueName]<code>)</code> 队列</p>
+
+<blockquote>
+  <p><strong>queueName</strong>  可选。 默认值是“<code>fx</code>”,经实践发现不能自定义队列名 <br>
+  能够返回第一个匹配元素上的动画队列, <br>
+  <code>length</code>能够获取对象的队列个数</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>$(<span class="hljs-string">"#do"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    $(<span class="hljs-string">".mytest"</span>).show(<span class="hljs-number">1000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">left</span>:<span class="hljs-string">"+=200"</span>},<span class="hljs-number">3000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">top</span>:<span class="hljs-string">"+=50"</span>},<span class="hljs-number">2000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>    $(<span class="hljs-string">".mytest"</span>).text(<span class="hljs-string">"动画完成"</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>  })
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>  $(<span class="hljs-string">"#count"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>    <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">".mytest"</span>).queue().length)
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>  })
+</div></code></pre>
+
+<hr>
+
+<p><strong>二：</strong><code>queue(</code>[‘fx’],fn<code>)</code> 添加队列函数</p>
+
+<blockquote>
+  <p>参数 是一个函数，给元素的队列中添加一个函数队列，函数队列执行时会阻止掉后面的队列执行，需要<code>dequeue()</code><strong>删除当前函数队列</strong>，来继续执行后面的队列</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment line-number">1.</span> $(<span class="hljs-string">"#do"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    $(<span class="hljs-string">".mytest"</span>).show(<span class="hljs-number">1000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">left</span>:<span class="hljs-string">"+=200"</span>},<span class="hljs-number">3000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>    $(<span class="hljs-string">".mytest"</span>).queue(<span class="hljs-string">'fx'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>        $(<span class="hljs-keyword">this</span>).text(<span class="hljs-string">"添加新队列"</span>)；
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>        $(<span class="hljs-keyword">this</span>).dequeue();<span class="hljs-comment">//删除当前函数队列</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>    });
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>    $(<span class="hljs-string">".mytest"</span>).animate({<span class="hljs-attr">top</span>:<span class="hljs-string">"+=50"</span>},<span class="hljs-number">2000</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>  })
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>  $(<span class="hljs-string">"#count"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>    alert($(<span class="hljs-string">".mytest"</span>).queue().length)
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span>  })
+</div></code></pre>
+
+<p>show()和animate()动画函数会默认的添加到fx动画队列中，而text()方法并非动画函数，所以不会加入到fx队列，并且会首先执行。那么可以通过使用此函数，<strong>将text()方法入队</strong>。</p>
+
+<hr>
+
+
+
+<h4 id="11delayduration-延迟">11、<code>delay(</code>duration<code>)</code> 延迟</h4>
+
+<blockquote>
+  <p>设置一个延时来推迟执行队列中之后的项目 <br>
+  <strong>duration</strong>:延时时间，单位：<code>毫秒</code></p>
+</blockquote></div></body></html>

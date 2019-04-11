@@ -1,0 +1,347 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第四天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.1 复习  4 <br>
+1.2 两个小循环   4 <br>
+1.3 多分支语句 switch    5 <br>
+1.4 下拉菜单的事件  onchange   6 <br>
+1.5 数组常用方法  7 <br>
+1.5.1 添加 数组 8 <br>
+1.5.2 删除数组内容    8 <br>
+1.5.3 连接两个数组    9 <br>
+1.5.4 join() 把数组转换为字符串  9 <br>
+1.5.5 把字符串转换为数组  split()    10 <br>
+1.6 DOM (重点)    10 <br>
+1.6.1 DOM 定义    11 <br>
+1.6.2 节点    11 <br>
+1.6.3 访问节点  12 <br>
+1.6.4 封装自己class类    12 <br>
+1.7 判断真假    13 <br>
+1.8 访问关系    13 <br>
+1.8.1 父节点   14 <br>
+1.8.2 兄弟节点  14 <br>
+1.8.3 子节点   15 <br>
+1.8.4 孩子节点  16 <br>
+1.9 dom 的节点操作   17 <br>
+1.9.1 创建节点  17 <br>
+1.9.2 插入节点  17 <br>
+1.9.3 移除节点  18 <br>
+1.9.4 克隆节点  18 <br>
+1.9.5   19</p>
+
+<p>1.1 <br>
+复习</p>
+
+<ol start="1"><li rel="1">数组           看电影    电影院  座位 <br>
+大的变量     里面可以放很多的值 <br>
+var  arr = [1,3,57]; <br>
+var ar = new Array();    new object();   new Date() <br>
+var txt =  [“宋江”,”张飞”] ; <br>
+使用数组:     数组名[索引号]     txt[1]    ==  张飞 <br>
+txt.length;     属性 <br>
+遍历数组： <br>
+for(var i=0;i&lt;txt.length;i++){ console.log( txt[i] )} <br>
+txt[i]  txt  数组 <br>
+1.2两个小循环 <br>
+循环   for(初始化; 条件; 增量){} <br>
+while()  当       do {}  while() <br>
+while(条件)  { 语句 } <br>
+var j = 1; <br>
+while(j&lt;=100) <br>
+{ <br>
+sum1+=j; <br>
+j++; <br>
+} <br>
+console.log(sum1);</li>
+</ol>
+
+<p>do while  至少执行一次     while 不一定 <br>
+1.3多分支语句 switch <br>
+switch  跟 if else if  else if else   几乎一样的  但是switch效率更好。 <br>
+作用其实就是 ： 多选1     从多个里面选1个 。 <br>
+语法格式：  <br>
+switch(参数) <br>
+{ <br>
+   case 参数1： <br>
+   语句; <br>
+   break;    退出的意思 <br>
+   case 参数2： <br>
+   语句; <br>
+   break;    退出的意思 <br>
+   …….. <br>
+   default:  默认的 <br>
+   语句; <br>
+} <br>
+  <br>
+    window.onload = function(){</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">    <span class="hljs-comment">//获取元素</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> txt = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"txt"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> btn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"btn"</span>);
+</div><div class="hljs-line">    btn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> val = txt.value;
+</div><div class="hljs-line">        <span class="hljs-keyword">switch</span>(val)
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-keyword">case</span> <span class="hljs-string">"苹果"</span>:
+</div><div class="hljs-line">                alert(<span class="hljs-string">"苹果的价格是: 5元"</span>);
+</div><div class="hljs-line">                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">            <span class="hljs-keyword">case</span> <span class="hljs-string">"香蕉"</span>:
+</div><div class="hljs-line">                alert(<span class="hljs-string">"香蕉的价格是: 2元"</span>);
+</div><div class="hljs-line">                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">            <span class="hljs-keyword">case</span> <span class="hljs-string">"梨"</span>:
+</div><div class="hljs-line">                alert(<span class="hljs-string">"梨的价格是: 1.5元"</span>);
+</div><div class="hljs-line">                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">            <span class="hljs-keyword">case</span> <span class="hljs-string">"大白菜"</span>:
+</div><div class="hljs-line">                alert(<span class="hljs-string">"大白菜的价格是: 9毛"</span>);
+</div><div class="hljs-line">                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">            <span class="hljs-keyword">default</span>:
+</div><div class="hljs-line">                alert(<span class="hljs-string">"今天没进货"</span>);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<p>1.4  下拉菜单的事件  onchange <br>
+  sele.onchange = function(){} <br>
+  当改变的时候  事件  </p>
+
+
+    window.onload = function(){
+        var sele = document.getElementById("sele");
+        sele.onchange = function(){
+           // alert(this.value);
+            switch(this.value)
+            {
+                case "1":
+                    document.body.style.backgroundImage = "url(images/chun1.jpg)";
+                    break;
+                case "2":
+                    document.body.style.backgroundImage = "url(images/xia1.jpg)";
+                    break;
+                case "3":
+                    document.body.style.backgroundImage = "url(images/qiu1.jpg)";
+                    break;
+                case "4":
+                    document.body.style.backgroundImage = "url(images/dong1.jpg)";
+                    break;
+            }
+        }
+
+    }
+
+
+<p>效果 ：</p>
+
+<p>1.5数组常用方法 <br>
+我们经常要对数组进行操作，可能追加，也可能删除 等等，何如？ <br>
+1.5.1添加 数组 <br>
+var arr = [1,3,5];  <br>
+我们想要 吧 7  这个数字 放到  这个数组的后面  <br>
+我想要 [1,3,5,7];</p>
+
+<ol><li rel="1">push()   ★★★★★  后面推进去 <br>
+push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。 <br>
+push 推进去   放  <br>
+var arr =[1,3,5]   →  arr.push(7)  → 结果变成 :  [1,3,5,7];</li>
+<li rel="2"><p>unshift()    从数组的前面放入 <br>
+unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度 <br>
+var arr = [1,3,5]  →  arr.unshift(0) →  结果变成 [0,1,3,5] <br>
+注意： <br>
+var dom = [1,3,5]; <br>
+console.log(dom.push(7));  // 返回的是 数组的长度  4 <br>
+1.5.2删除数组内容</p>
+
+<ol>
+<li rel="1">pop()   删除最后一个元素</li></ol>
+
+<p>pop()  移除最后一个元素  <br>
+返回值 是 返回最后一个值 <br>
+var  arr = [1,3,5]   →  arr.pop()  →  结果   [1,3]  </p></li>
+<li rel="2">shift()  删除第一个元素 <br>
+shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值 <br>
+var  arr = [1,3,5]   →  arr.shift()  →  结果   [3,5]  <br>
+1.5.3连接两个数组 <br>
+concat() <br>
+该方法用于连接两个或多个数组。它不会改变现有的数组，而仅仅会返回被连接数组的一个副本  <br>
+var aa = [1,3,5];  var bb = [“a”,”b”,”c”]; <br>
+aa.concat(bb);     结果：  [1,3,5,“a”,”b”,”c”]; <br>
+1.5.4join() 把数组转换为字符串 <br>
+join() <br>
+作用是将数组各个元素是通过指定的分隔符进行连接成为一个字符串。 <br>
+语法 <br>
+arrayObject.join(separator) <br>
+数组名.join(符号)  <br>
+数组转换为字符串 <br>
+参数 separator 可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。 <br>
+var arr = [1,2,3]; <br>
+console.log(arr.join(“-”))    结果就是：  1-2-3    字符串 <br>
+1.5.5把字符串转换为数组  split() <br>
+join   &lt;=&gt;   split <br>
+split() 方法用于把一个字符串分割成字符串数组 <br>
+语法 <br>
+stringObject.split(separator,howmany) <br>
+参数 separator 可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。 <br>
+howmany 可选。该参数可指定返回的数组的最大长度</li>
+</ol>
+
+<p>1.6DOM (重点) <br>
+ 我们js 有三部分组成的？ <br>
+   ECMAscript       DOM      BOM   </p>
+
+<p>核心（ECMAScript）欧洲计算机制造商协会 <br>
+      描述了JS的语法和基本对象。   var aa   var AA   不一样  <br>
+文档对象模型（DOM）  学习的重点 <br>
+     处理网页内容的方法和接口 <br>
+浏览器对象模型（BOM）    了解一下 <br>
+     与浏览器交互的方法和接口 <br>
+     window.alert()  很大的兼容问题 <br>
+1.6.1DOM 定义 <br>
+DOM 为文档提供了结构化表示，并定义了如何通过脚本来访问文档结构。 <br>
+目的其实就是为了能让js操作html元素而制定的一个规范。 <br>
+DOM 树   </p>
+
+<p>1.6.2节点 <br>
+   标签   标记    元素    节点 <br>
+由结构图中我们可以看到，整个文档就是一个文档节点。 <br>
+而每一个HMTL标签都是一个元素节点。 <br>
+标签中的文字则是文字节点。 <br>
+标签的属性是属性节点。 <br>
+一切都是节点…… <br>
+1.6.3访问节点 <br>
+ 我们学过几个访问节点 ： <br>
+  getElementById()   id 访问节点 <br>
+  getElementsByTagName()    标签访问节点 <br>
+  getElementsByClassName()   类名    有兼容性问题 <br>
+  主流浏览器支持     ie 67 8  不认识 <br>
+  怎么办？ 我们自己封装自己的 类 。 <br>
+1.6.4封装自己class类 <br>
+  原理： （核心） <br>
+   我们要取出所有的盒子， 利用遍历的方法 ， 通过每一个盒子的className 来判断。  如果相等就留下。</p>
+
+
+    window.onload = function(){
+       //封装自己class类名
+        function getClass(classname){
+            //如果浏览器支持，则直接返回
+            if(document.getElementsByClassName)
+            {
+                return document.getElementsByClassName(classname);
+            }
+            // 不支持的 浏览器
+            var arr = []; // 用于存放满足的数组
+            var dom = document.getElementsByTagName("*");
+            //alert(dom.length);
+            for(var i=0;i&lt;dom.length;i++)
+            {
+                if(dom[i].className == classname)
+                {
+                    arr.push(dom[i]);
+                }
+            }
+            return arr;
+        }
+        console.log(getClass("demo").length);
+    }
+
+
+<p>结束，分割版本  <br>
+1.7判断真假 <br>
+我们用条件语句来判断5大数据类型中的真假； <br>
+数据  结论 <br>
+数字类型    所有数字都是真，0是假 <br>
+字符串 所有字符串都是真，’ ’串是假 <br>
+对象  所有对象都是真，null是假 <br>
+未定义 undefined是假，没有真 <br>
+1.8访问关系  <br>
+各个节点的相互关系</p>
+
+<p>1.8.1 父节点  <br>
+ 父 ：  parentNode         亲的  一层 </p>
+
+
+    window.onload = function(){
+        var x = document.getElementById("x");
+        x.onclick = function(){
+            this.parentNode.style.display = "none";
+            // 关掉的是他的 父亲
+        }
+    }
+
+
+<p>1.8.2兄弟节点 <br>
+nextSibling  下一个兄弟    亲的       ie 678 认识 <br>
+nextElementSibling   其他浏览器认识的     </p>
+
+<p>previousSibling   同理  上一个兄弟 <br>
+previousElementSibling <br>
+我们想要兼容    我们可以合写      ||      或者 </p>
+
+<p>var div = one.nextElementSibling || one.nextSibling; <br>
+div.style.backgroundColor = “red”;</p>
+
+<p>必须先写 正常浏览器  后写  ie678 <br>
+1.8.3 子节点  <br>
+firstChild    第一个孩子  ie678 <br>
+firstElementChild  第一个孩子   正常浏览器 <br>
+var one.firstElementChild || one.firstChild;   </p>
+
+<p>lastChild <br>
+lastElementChild</p>
+
+<p>1.8.4孩子节点 <br>
+childNodes    选出全部的孩子 <br>
+childNodes：它是标准属性，它返回指定元素的子元素集合，包括HTML节点，所有属性，文本节点     （嫡出） <br>
+火狐 谷歌等高本版会把换行也看做是子节点</p>
+
+<p>利用  nodeType == 1   时才是元素节点     来获取元素节点 <br>
+标签  元素  </p>
+
+<p>children   重要  选取所有的孩子 （只有元素节点） <br>
+这个更好 跟喜欢它  。 （庶出）  <br>
+ie 678  包含 注释节点     这个要避免开。 </p>
+
+<p>1.9dom 的节点操作  <br>
+ 新建节点   插入节点   删除节点   克隆节点 等等 <br>
+1.9.1 创建节点  <br>
+  var div = document.creatElement(“li”);</p>
+
+<p>上面的意思就是 生成一个新的  li 标签 <br>
+1.9.2插入节点 </p>
+
+<ol><li rel="1">appendChild();    添加孩子     append 添加的意思 <br>
+意思：  添加孩子   放到盒子的 最后面。</li>
+<li rel="2">insertBefore(插入的节点，参照节点)   子节点  添加孩子 <br>
+写满两个参数 <br>
+demo.insertBefore(test,childrens[0]); <br>
+放到了第一个孩子的前面 <br>
+如果第二个参数  为 null  则 默认这新生成的盒子放到最后面。 <br>
+demo.insertBefore(test,null);</li>
+</ol>
+
+<p>1.9.3  移除节点 <br>
+removeChild()    孩子节点 <br>
+var da = document.getElementById(“xiongda”); <br>
+demo.removeChild(da);</p>
+
+<p>1.9.4克隆节点 <br>
+ cloneNode(); <br>
+ 复制节点  <br>
+ 括号里面可以跟参数  ， 如果 里面是 true  深层复制， 除了复制本盒子，还复制子节点 <br>
+ 如果为 false  浅层复制   只复制   本节点  不复制 子节点。</p>
+
+<p>1.10  作业</p></div></body></html>

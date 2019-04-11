@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../public/img_css/index.css">
+    
+    <link rel="prerender"  href="../views/listpic.html"/>
+<link rel="prerender"  href="../public/jq/javascript.html"/>
+<link rel="prerender"  href="../public/jq/jquery.html"/>
+  </head>
+  <body>
+	    <h3>express router</h3>
+	    <form action="/user" method="post">
+	      <div>
+	        <label for="name">name: </label>
+	        <input type="text" id='name' name="username" value="">
+	      </div>
+	      <div>
+	        <label for="password">password: </label>
+	        <input type="text" id="password" name="password" value="">
+	      </div>
+	      <input type="submit" value="submit">
+	    </form>
+    <h3>单张文件上传</h3>
+    <div>
+      <input type="file" name="image" id='file'>
+      <input type="button" value='上传文件' id='upload'>
+    </div>
+    <h3>多张文件上传</h3>
+    <div>
+      <input type="file" multiple="true" id='files'>
+      <input type="button" value="上传多张" id='uploadMore'>
+    </div>
+    <script src="../public/img_css/jquery.min.js" charset="utf-8"></script>
+    <script src="../public/img_css/index.js" charset="utf-8"></script>
+  </body>
+</html>

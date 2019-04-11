@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第三天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 判断用户输入事件    4 <br>
+1.4 数组 array    4 <br>
+1.4.1 声明数组  4 <br>
+1.4.2 使用数组  5 <br>
+1.4.3 数组的长度 5 <br>
+1.4.4 遍历数组  5 <br>
+1.4.5 案例 隔行变色   5 <br>
+1.4.6 求平均值  6 <br>
+1.5 排他思想    7 <br>
+1.6 变量 和 属性 8</p>
+
+<p>1.1 <br>
+复习</p>
+
+<ol><li rel="1">函数  function <br>
+函数的声明    函数的  调用    函数的传参  </li>
+<li rel="2">函数返回值 <br>
+Return    返回结果     返回给函数 <br>
+Id 函数  <br>
+ function $id(id) { return document.getElementById(id);} <br>
+<ol>
+<li rel="3">获得焦点  onfocus       onblur  失去焦点</li>
+<li rel="4">this  这个 自己的     指向的是  事件调用者</li>
+<li rel="5">InnerHTML  属于盒子的内容     表单的内容 value </li>
+<li rel="6">表单自动获得焦点   focus()    选择表单内容   select();</li>
+<li rel="7">For(var i = 0; i&lt;100;i++) {  }   遍历   </li>
+<li rel="8">For(;;){ }     死循环  </li>
+<li rel="9">GetElementById()  id元素  一个 <br>
+10.getElementsByTagName()  很多个</li></ol></li>
+</ol>
+
+<p>1.2判断用户输入事件 <br>
+  正常浏览器  :    oninput <br>
+  Ie 678  支持的  ： onpropertychange   </p>
+
+<p>1.3数组 array <br>
+数组是做什么用的？ <br>
+var  num = 10;  变量可以用来存储东西 。 <br>
+一个变量里面只能一个值。 <br>
+我们130人，想把我们每个人的人名存储，要用变量需要 130变量。 <br>
+这个时候可以考虑  数组 。  组合  <br>
+数组：  就是一个大变量， 它里面可以存储很多的值。 <br>
+1.3.1声明数组 <br>
+  var arr = [1,3,5,7,9]; <br>
+  var arr = new Array(1,3,5);</p>
+
+<p>1.3.2使用数组 <br>
+ 使用的方法:    数组名[索引值];               函数名();  <br>
+ 索引号是从0开始的。   0 1 2 3 4 5 … <br>
+var textArr = [“刘备”,”诸葛亮”,”赵云”,”关羽”]; <br>
+console.log(textArr[3])</p>
+
+<p>1.3.3 数组的长度 <br>
+ 数组名.length; <br>
+1.3.4 遍历数组 <br>
+  想到了for  遍历 数组 <br>
+  getElementsByTagName()  得到一个伪数组 <br>
+1.3.5  案例 隔行变色 <br>
+   <br>
+    window.onload = function(){ <br>
+        var lis = document.getElementsByTagName("li");  // 得到所有的li <br>
+        //alert(lis.length); <br>
+        for(var i = 0; i&lt;lis.length; i++) <br>
+        { <br>
+            if(i%2 == 0)  // 只有偶数能被2整除 <br>
+            { <br>
+                lis[i].style.backgroundColor = "#eee"; <br>
+            } <br>
+            //鼠标经过li 的时候， 当前的底色变亮 <br>
+            lis[i].onmouseover = function(){ <br>
+                this.className = "current"; <br>
+            } <br>
+            lis[i].onmouseout = function(){ <br>
+                this.className = ""; <br>
+            } <br>
+        } <br>
+    } <br>
+</p>
+
+<p>1.3.6求平均值</p>
+
+
+var arr = [10,20,30,34,67];
+    function avg(array){  // 封装求平均值函数
+        var len = array.length;  // 数组的长度
+        var sum = 0;
+        for(var i=0; i&lt;len; i++)
+        {
+            sum += array[i];   //     sum = sum +array[i];
+        }
+        return sum / len;
+    }
+    //a*=3   a= a*3
+    console.log(avg(arr));
+
+
+<p>字符相连</p>
+
+<ul><li><p>数值相加  字符相连 <br>
+1+1 = 2; <br>
+“你好” + “吗”     “你好吗” <br>
+“你好” + 2      “你好2”</p>
+
+<p>“0” + 10          “010” <br>
+10 - “2”        8 <br>
+所有的input  取过来的值  是  字符型。 <br>
+三元运算符  三目运算符 <br>
+一元：  a++  b++    +a  -a  <br>
+二元:   a+b   a&gt;=b  <br>
+三元:   表达式 ? 结果1 : 结果2    等价于    if  else  <br>
+如果表达式结果为真 ， 则返回 结果1 <br>
+如果表达式结果为假，  则返回结果2  <br>
+if(3&gt;5) {alert(“11”)} else { alert(22)}      ==  <br>
+3&gt;5 ? alert(11) : alert(22) <br>
+the king is always luck <br>
+王老吉 <br>
+1.4 排他思想 <br>
+排他思想: <br>
+首先干掉所有人，   剩下我自己</p>
+
+
+window.onload = function(){
+    var btns = document.getElementsByTagName("button");
+    for(var i=0;i&lt;btns.length;i++)
+    {
+        btns[i].onclick = function(){
+            //清除所有人的 类名   只能用 for 遍历
+            for(var j=0;j&lt;btns.length;j++)
+            {
+                btns[j].className = "";
+            }
+            //就剩下自己 就是一个 而且是点击那个
+            this.className = "damao";
+        }
+    }
+}
+</li>
+</ul>
+
+<p>1.5变量 和属性  <br>
+变量 <br>
+   是独立存在的 自由自在的 <br>
+   miss    小姐 女士 <br>
+属性和方法 <br>
+   属于某个对象的 属性和 方法 <br>
+    mrs   </p>
+
+<p>var index = 10;  //变量  谁都可以使用 <br>
+var arr = [];   // 数组 <br>
+arr.index = 20;    // 自定义属性  他只能在arr 才能使用 <br>
+alert(arr.index);</p></div></body></html>

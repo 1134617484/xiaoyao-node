@@ -1,0 +1,314 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第二天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  4 <br>
+1.3 函数(function)    5 <br>
+1.3.1 函数的声明 5 <br>
+1.3.2 自定义函数 6 <br>
+1.3.3 函数直接量声明   6 <br>
+1.3.4 利用Function 关键字声明  6 <br>
+1.3.5 变量声明提升    6 <br>
+1.3.6 函数参数  8 <br>
+1.4 案例 鼠标展示 10 <br>
+1.5 返回值  return 11 <br>
+1.6 算术运算符   12 <br>
+1.7 条件语句(if)    12 <br>
+1.8 获得焦点  失去焦点 事件   13 <br>
+1.9 this (自己的)  14 <br>
+1.10 属性和方法  14 <br>
+1.10.1 表单自动获得焦点 15 <br>
+1.10.2 鼠标经过选择表单 16 <br>
+1.11 For 循环 16 <br>
+1.12 getElementsByTagName()  获取某类标签 16</p>
+
+<p>1.1 <br>
+复习 <br>
+一、提示框 <br>
+1.弹出警示框   alert();      window.alert();   window 窗口 <br>
+2.控制台输出   console.log()  <br>
+3.文档打印    document  文档     document.write(); <br>
+1.下面哪种JavaScript语法格式是正确的（ ） <br>
+A．echo “I enjoy JavaScript”; <br>
+B．document.write( I enjoy JavaScript) <br>
+C．response.write(“I enjoy JavaScript “)    ; <br>
+D．alert(“I enjoy JavaScript “); <br>
+  二、 变量 <br>
+  Java   Var  aa:int = 10; <br>
+Var  num  =  10; <br>
+字母  _   $  开头 <br>
+Var dd=100,ee=100  声明多个变量  逗号隔开 <br>
+1.Javascript中, 以下声明变量语句中哪个不正确？ <br>
+A、var aa; <br>
+B、var bb=3; cc=’good’; <br>
+C、var dd = ee = 100; <br>
+D、var ff=3, gg=’he’s good’; <br>
+  三、 事件三要素  <br>
+      事件源     被触发的对象    名词 <br>
+      事件       动词    onclick  onmouseover    onmouseout  <br>
+      事件处理程序  放到函数里面就行了 <br>
+  事件源.事件 = function(){ 语句; } <br>
+      入口函数: window.onload = function(){   }  <br>
+   四、 <br>
+      行内式 <br>
+        </p><div> <br>
+      内嵌式 <br>
+      外链式 <br>
+       <br>
+五、数据类型 <br>
+        Number   string   boolean    null  undefined  <br>
+1.2函数(function) <br>
+函数： 函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。 <br>
+四大发明    造纸术  火药  指南针  印刷术  <br>
+1.2.1函数的声明  <br>
+ 函数使用跟变量一样，需要 声明 <br>
+1.2.2自定义函数  <br>
+function fun(){ <br>
+    alert(“我是自定义函数”) <br>
+} <br>
+fun();  // 函数不调用，自己不执行</div><p></p>
+
+<p>1.2.3函数直接量声明 <br>
+var fun1 = function(){ <br>
+    alert(“直接量声明”) <br>
+} <br>
+fun1();  也需要调用 <br>
+1.2.4利用Function 关键字声明 <br>
+var fun2 = new Function(“var a = 10; var b = 20; alert(a+b)”); <br>
+fun2();</p>
+
+<p>1.2.5变量声明提升 <br>
+什么是变量提升</p>
+
+<p>1   function fun(){ <br>
+2          console.log(num); <br>
+3          var num = 20; <br>
+4  } <br>
+相当于 — <br>
+5  function fun(){ <br>
+6          var num; <br>
+7          console.log(num); <br>
+8          Num = 20; <br>
+9  } <br>
+在函数体内部，声明变量，会把该声明提升到函数体的最顶端。 只提升变量声明，不赋值。 <br>
+var a = 18; <br>
+f1(); <br>
+function f1(){ <br>
+    var b=9; <br>
+    console.log(a); <br>
+    console.log(b); <br>
+    var a = ‘123’; <br>
+} <br>
+结果是： undefined  9 <br>
+1.2.6函数参数</p>
+
+<p>arguments是存储了函数传送过过来实参  <br>
+Javascript在创建函数的同时，会在函数内部创建一个arguments对象实例. <br>
+arguments对象只有函数开始时才可用。函数的 arguments 对象并不是一个数组，访问单个参数的方式与访问数组元素的方式相同 <br>
+arguments对象的长度是由实参个数而不是形参个数决定的</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gauss"><div class="hljs-line">&lt;script&gt;
+</div><div class="hljs-line">function <span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(a,b)</span>
+</span></div><div class="hljs-line">{
+</div><div class="hljs-line">    console.<span class="hljs-built_in">log</span><span class="hljs-params">(<span class="hljs-keyword">fn</span>.length)</span>; <span class="hljs-comment">//得到是 函数的形参的个数</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//console.log(arguments);</span>
+</div><div class="hljs-line">    console.<span class="hljs-built_in">log</span>(arguments.length); <span class="hljs-comment">// 得到的是实参的个数</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(<span class="hljs-function"><span class="hljs-keyword">fn</span>.<span class="hljs-title">length</span> == arguments.length)
+</span></div><div class="hljs-line">    {
+</div><div class="hljs-line">        console.<span class="hljs-built_in">log</span><span class="hljs-params">(a+b)</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">else</span>
+</div><div class="hljs-line">    {
+</div><div class="hljs-line">        console.<span class="hljs-built_in">error</span>(<span class="hljs-string">"对不起，您的参数不匹配，正确的参数个数为:"</span> + <span class="hljs-function"><span class="hljs-keyword">fn</span>.length)</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//console.log(a+b);</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)</span></span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span></span>;
+</div></code></pre>
+
+<p></p>
+
+<p>Var a = 10, b = 20; <br>
+  等价的 <br>
+  Var a = 10; <br>
+  Var b = 20; <br>
+1.3  案例 鼠标展示</p>
+
+<p>代码：</p>
+
+<p>var box = document.getElementById(“box”); <br>
+function fn(liid,bg){  // 封装函数  参数的传递 <br>
+    var obj = document.getElementById(liid); <br>
+    obj.onmouseover = function(){ <br>
+        box.style.backgroundImage = bg; <br>
+    } <br>
+} <br>
+fn(“li01”,”url(images/01big.jpg)”); // 实参 <br>
+fn(“li02”,”url(images/02big.jpg)”); <br>
+fn(“li03”,”url(images/03big.jpg)”); <br>
+fn(“li04”,”url(images/04big.jpg)”); <br>
+fn(“li05”,”url(images/05big.jpg)”);</p>
+
+<p>1.4返回值  return  <br>
+定义： <br>
+一个函数实际上就是一个计算过程，计算完成之后的结果就是返回值。 <br>
+定义函数的返回值： <br>
+在函数内部用return来设置返回值，一个函数只能有一个返回值。 <br>
+同时，终止代码的执行。 <br>
+所有的自定义函数默认没有返回值； <br>
+Return 后面不要换行 <br>
+function <span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true" style="font-size: 100%; display: inline-block;"><span><img type="image/png" width="307.063" height="17" longdesc="__SVG__undefined" src="data:image/png;base64,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" style="margin-top:0;margin-bottom:0;"></span></span>(“demo”).style.backgroundColor = ‘purple’; <br>
+$(“test”).style.backgroundColor = “blue”; <br>
+1.以下代码执行的结果是多少？请分析为什么？ <br>
+1   var total=10; <br>
+1   var number = square(5); <br>
+2   alert(number); <br>
+3   function square(n) { <br>
+4       total = n*n; <br>
+5       return total; <br>
+6  } <br>
+ 结果是 25 <br>
+1.5算术运算符</p>
+
+<ul><li><ul>
+<li><ul>
+<li>/     %     ^ <br>
+1+1 = 2 <br>
+5%2 ==  1 <br>
+2%5  ==  2 <br>
+2^3 <br>
+A++  ++后置       每次自加1     先运算后自加</li></ul></li></ul>
+
+<p>++a   ++前置       每次自加1    先自加 后运算 <br>
+1.分析代码，得出正确的结果。</p></li>
+</ul>
+
+<p>1   var a=10, b=20 , c=30; <br>
+2   ++a; <br>
+3   a++; <br>
+4   e=++a+(++b)+(c++)+a++; <br>
+5   alert(e); <br>
+77 <br>
+1.6条件语句(if) <br>
+  If(条件表达式)  { 语句;} <br>
+  If() {}else {} <br>
+ If()  else if(){}  else if(){} else {} <br>
+1.7获得焦点  失去焦点 事件 <br>
+ 我们前面学过了  onclick  点击  onmouseover  onmouseout’ <br>
+ 获得焦点:   onfocus         fao ~克死 <br>
+ 失去焦点:   onblur          不len ~~</p>
+
+<p> <br>
+    window.onload = function(){</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">    <span class="hljs-keyword">var</span> txt = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"txt"</span>);
+</div><div class="hljs-line">
+</div><div class="hljs-line">    txt.onfocus = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">//得到焦点</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//alert("得到了焦点");</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//什么时候该清空呢</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//用户没有输入的时候，用户第一次使用的时候</span>
+</div><div class="hljs-line">       <span class="hljs-comment">// 如果 这里input 里面的文字 是 请输入...  说明用户没有用过，就应该清空</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(txt.value == <span class="hljs-string">"请输入..."</span>)
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            txt.value = <span class="hljs-string">""</span>;
+</div><div class="hljs-line">            txt.style.color = <span class="hljs-string">"#333"</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">
+</div><div class="hljs-line">    txt.onblur = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">//失去焦点</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//alert("失去了焦点");</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//什么时候再还原呢？</span>
+</div><div class="hljs-line">        <span class="hljs-comment">//input的值是 空的时候，我们再复原</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(txt.value == <span class="hljs-string">""</span>)
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            txt.value = <span class="hljs-string">"请输入..."</span>;
+</div><div class="hljs-line">            txt.style.color = <span class="hljs-string">"#ccc"</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<p>1.8this (自己的) <br>
+指的是本身 <br>
+This 主要是指事件的调用者 。  <br>
+className    类名  <br>
+$(“result”).className =”wrong”; <br>
+innerHTML <br>
+更换 盒子里面的内容    文字 标签都换. <br>
+表单更换内容 <br>
+ Input.value  <br>
+isNaN    nan 不是一个数字    is 是   是 不是一个数字 <br>
+isNaN(“12”)   如果里面的不是个数字 返回 true   否则返回false <br>
+1.9属性和方法 <br>
+手机 <br>
+黑色的     5.5寸的      塑料的      铁的 <br>
+外在特性 <br>
+属性 <br>
+手机的颜色是黑色的。 <br>
+Iphone.color = “red”;     属性给值一定是等号 <br>
+方法： <br>
+  手机 打电话   发短信  玩游戏   聊QQ  看电影  <br>
+  动词   可以干什么 <br>
+Iphone.tel(); <br>
+方法和属性的区别： <br>
+  方法一律带有小括号 。  isNaN( );    动词 <br>
+   方法给值：    isNaN（“值”）; <br>
+1.9.1表单自动获得焦点 <br>
+ Txt.focus();   方法 <br>
+ Onfocus  事件 <br>
+ <br>
+ <br>
+ <br>
+     <br>
+     <br>
+     <br>
+        window.onload = function(){ <br>
+            var txt = document.getElementById("txt"); <br>
+            txt.focus(); //自动获得焦点 <br>
+        } <br>
+ <br>
+ <br>
+ <br>
+自动获得焦点: <br>
+<input type="text" id="txt"> <br>
+ <br>
+ <br>
+1.9.2鼠标经过选择表单 <br>
+ sele.onmouseover = function(){ <br>
+    this.select(); //选择 <br>
+} <br>
+方法  select()  选择功能</p>
+
+<p>1.10For 循环 <br>
+人生一个循环 <br>
+i+=3        i=i+3 <br>
+1.11getElementsByTagName()  获取某类标签 <br>
+前面我们可以得到一个盒子  通过  id 获得  <br>
+getElementById()   只得到一个 盒子 <br>
+我们想要获取某类标签   比如说所有 的div   li  span <br>
+getElementsByTagName();  很多个所以是复数   很多个 <br>
+得到的是一个伪数组。 <br>
+Lis  数组 <br>
+Lis[索引号]   一个 </p>
+
+<p>1.12作业 <br>
+1.编写一个程序，计算增加后的工资。要求工龄满5，增加20%工资；若2—4，则增加15%；若小于2，则增加10%工资。</p>
+
+<ol start="2"><li rel="2">编写一个程序，用户输入一个数，可以求出这个数的阶乘。</li>
+<li rel="3">利用for循环 遍历 京东背景图片。</li>
+</ol></div></body></html>

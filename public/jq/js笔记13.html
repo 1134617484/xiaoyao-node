@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第十三天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>闭包 基础    面向对象基础 <br>
+1.1闭包 <br>
+在程序语言中，所谓闭包，是指语法域位于某个特定的区域，具有持续参照(读写)位于该区域内自身范围之外的执行域上的非持久型变量值能力的段落。这些外部执行域的非持久型变量神奇地保留他们在闭包最初定义(或创建)时的值。 <br>
+白话：  我们可以用一个函数 去访问 另外一个函数的内部变量的方式就是闭包。 <br>
+内部变量 是 局部变量      那我们知道，局部变量是不可以为别人随便使用也。</p>
+
+<p>function fun() { <br>
+    var num = 10; <br>
+} <br>
+console.log(num);  // 这样子就错了  num 是一个局部变量 </p>
+
+<p>测试题  <br>
+1  function outerFun() <br>
+2  { <br>
+3   var a=0; <br>
+4   function innerFun() <br>
+5   { <br>
+6    a++; <br>
+7    alert(a); <br>
+8   } <br>
+9   return innerFun;  //注意这里 <br>
+10  } <br>
+11  var obj=outerFun(); <br>
+12  obj();  obj(); <br>
+13  var obj2=outerFun(); <br>
+14  obj2();  obj2(); <br>
+15  结果是 ：  1  2  1  2</p>
+
+<p>闭包的优点 ：  <br>
+优点：不产生全局变量，实现属性私有化。 <br>
+缺点：闭包中的数据会常驻内存，在不用的时候要删掉否则会导致内存溢出。 <br>
+1.2对象（object） <br>
+对象是什么？ <br>
+基本数据类型    string   number  boolean   null   undefined <br>
+Array    对象  <br>
+对象数据类型：   对象就是带有属性和方法的 数据类型 <br>
+ var num = 10;   // 变量 <br>
+var arr = [];  // 数组 <br>
+arr.index = 10;  // 数组arr 的 一个 index  属性 <br>
+但是有个问题， 我们想要某些属性或者方法的时候，用数组不合适。  <br>
+arr.lenght  . <br>
+我们想要自己id属性和方法 。  要求这个一定是个对象才行。 <br>
+1.2.1声明对象  <br>
+我们有两种声明对象的方式. <br>
+var obj = new Object(); <br>
+但是我们更提倡用第二种方法： 字面量式声明对象  <br>
+ var obj  = {};</p>
+
+<p>var obj = {};  // 声明对象 <br>
+obj.name = “刘德华”;  // 属性 <br>
+obj.age = 55; <br>
+obj.showName = function() {   // 声明方法    方法一定带有 () <br>
+    alert(“俺是刘德华”); <br>
+} <br>
+obj.showAge = function() { <br>
+    alert(“俺今年18岁”); <br>
+} <br>
+1.2.2使用对象 <br>
+console.log(obj.name);  // 调用属性 <br>
+console.log(obj.age); <br>
+obj.showName();   //  调用方法 <br>
+obj.showAge(); <br>
+1.2.3面向对象 <br>
+面向对象里面：类和对象 <br>
+类是对象的抽象，而对象是类的具体实例 <br>
+一切事物皆对象  JavaScript 一切皆对象 <br>
+类 和 对象 <br>
+对象   女朋友 <br>
+小胡 你有对象了吗？              泛指     女朋友 <br>
+旁边坐的那个女生是你对象吗？     特指     某一个女朋友 <br>
+大家喜欢吃苹果吗？         泛指        类 <br>
+你手里的那个苹果甜吗？     特指        对象  （具体的实例） <br>
+面向对象的特性</p>
+
+<ol><li rel="1">抽象 <br>
+抽象就是忽略一个主题中与当前目标无关的那些方面，以便更充分地注意与当前目标有关的方面。</li>
+<li rel="2">封装 <br>
+封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面</li>
+<li rel="3">继承</li>
+<li rel="4">多态 <br>
+多态是指两个或多个属于不同类的对象，对于同一个消息（方法调用）作出不同响应的方式</li>
+</ol>
+
+<p>1.2.4new <br>
+新的   我们经常利用new 关键字 去声明新的对象  <br>
+javascript   </p>
+
+<p>new运算符的作用是创建一个对象实例。这个对象可以是用户自定义的，也可以是带构造函数的一些系统自带的对象。 <br>
+new 关键字可以让 this  指向新的对象  <br>
+所谓”构造函数”，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。 <br>
+1.2.5prototype <br>
+    共同的 相同的 部分  <br>
+主要解决：函数因为使用非常非常多，重复执行效率太低。 <br>
+Person.prototype.showName = function() {  // 用的共同的父亲 <br>
+    alert(“我的名字是”+ this.name); <br>
+}</p>
+
+<p>类.prototype.方法  = function() {}  具体格式  <br>
+可以把那些不变的属性和方法，直接定义在prototype对象上 <br>
+使用方法： <br>
+     类名.prototype.方法</p></div></body></html>

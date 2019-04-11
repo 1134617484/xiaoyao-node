@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><title>Untitled</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<p>关注公众号免费获取整套java学习视频资料让你更快的学习到相关的java知识！针对java零基础学习者！同时也针对企业就业者！</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">    前端基本功—<span class="hljs-keyword">javascript </span>第八天
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">
+</div><div class="hljs-line">              目录 
+</div></code></pre>
+
+<p>目录  2 <br>
+1.2 复习  3 <br>
+1.3 offset家族    3 <br>
+1.3.1 offsetWidth    offsetHeight   4 <br>
+1.3.2 offsetLeft  offsetTop 4 <br>
+1.3.3 offsetParent  6 <br>
+1.3.4 offsetTop style.top 的区别   6 <br>
+1.4 事件对象    7 <br>
+1.4.1 event 常见属性    8 <br>
+1.4.2 pageX  clientX  screenX 区别    9 <br>
+1.5 常用事件    10</p>
+
+<p>1.1 <br>
+复习</p>
+
+<ol><li rel="1">根据位置返回 字符   asdfg.charAt(3)       f <br>
+    根据字符返回位置    asdfgg.indexOf(“f”)   3   从前面索引 <br>
+                         lastIndexOf(“g”)  5   从后面索引</li>
+<li rel="2">slice(起始位置，[ 结束位置 ]) <br>
+  slice(3)  从第3个开始选     slice(3,6)   从索引号3开始取，数6个  但是从索引号0  开始数 <br>
+var arr = [1,3,5,7]; <br>
+asdfghidk     fgh  <br>
+ substr(3,6)  从3开始选  从第三个开始数 往后 数 6个     fghidk <br>
+toFixed(2) <br>
+缓动公式 : <br>
+leader =  leader + (target - leader) / 10 <br>
+1.2offset家族 <br>
+offset  自己的 <br>
+目的：  js中有一套方便的获取元素尺寸的办法就是offset家族；</li>
+</ol>
+
+<p>1.2.1offsetWidth    offsetHeight <br>
+得到对象的宽度和高度(自己的，与他人无关)  <br>
+offsetWidth =  width  + border  +  padding <br>
+div {  width:220px;  border-left:2px solid red; padding:10px;} <br>
+ div.offsetWidth =  220 + 2 + 20 <br>
+ 为什么不用 div.style.width   因为东西 只能得到行内的数值 <br>
+1.2.2offsetLeft  offsetTop <br>
+返回距离上级盒子（最近的带有定位）左边的位置</p>
+
+<p>如果父级都没有定位则以body 为准 <br>
+这里的父级指的是所有上一级 不仅仅指的是 父亲 还可以是 爷爷 曾爷爷 曾曾爷爷。。。。</p>
+
+<p>offsetLeft 从父级的padding 开始算    父亲的border 不算 <br>
+总结一下：  就是子盒子到定位的父盒子边框到边框的距离</p>
+
+<p>1.2.3offsetParent <br>
+返回改对象的父级 （带有定位） 不一定是亲的爸爸  <br>
+前面学过一个返回父亲(亲的)    parentNode   有所区别</p>
+
+<p>如果当前元素的父级元素没有进行CSS定位（position为absolute或relative），offsetParent为body。 <br>
+2、如果当前元素的父级元素中有CSS定位（position为absolute或relative），offsetParent取最近的那个父级元素。</p>
+
+<p>var son = document.getElementById(“son”); <br>
+//alert(son.parentNode.id); <br>
+alert(son.offsetParent.tagName);  // tagName标签的名字  </p>
+
+<p>1.2.4offsetTop style.top 的区别 <br>
+一、最大区别在于  offsetLeft  可以返回没有定位盒子的距离左侧的位置。 而 style.top 不可以  只有定位的盒子 才有 left  top right  </p>
+
+<p>二、offsetTop 返回的是数字，而 style.top 返回的是字符串，除了数字外还带有单位：px。 <br>
+ style.left = 300px      parseInt（300px）    结果  300 <br>
+parseInt（style.left） + parseInt（style.left） <br>
+三、offsetTop 只读，而 style.top 可读写。</p>
+
+<p>四、如果没有给 HTML 元素指定过 top 样式，则 style.top 返回的是空字符串。 <br>
+五、最重要的区别  style.left 只能得到 行内样式     offsetLeft 随便 <br>
+1.3事件对象 <br>
+我们学过一些事件 :   onmouseover   onmouseout    onclick ….. <br>
+btn.onclick = function(event) {  语句 } <br>
+event   单词翻译过来   事件 的意思  <br>
+event  就是事件的对象    指向的是 事件  是   onclick <br>
+再触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息。所有浏览器都支持event对象，但支持的方式不同。 <br>
+比如鼠标操作时候，会添加鼠标位置的相关信息到事件对象中。 <br>
+普通浏览器支持 event <br>
+ie 678 支持 window.event <br>
+所以我们 采取兼容性的写法 ：  <br>
+  var event = event || window.event; </p>
+
+<p>1.3.1event 常见属性 <br>
+属性  作用 <br>
+data    返回拖拽对象的URL字符串（dragDrop） <br>
+width   该窗口或框架的高度 <br>
+height  该窗口或框架的高度 <br>
+pageX   光标相对于该网页的水平位置（ie无） <br>
+pageY   光标相对于该网页的垂直位置（ie无） <br>
+screenX 光标相对于该屏幕的水平位置 <br>
+screenY 光标相对于该屏幕的垂直位置 <br>
+target  该事件被传送到的对象 <br>
+type    事件的类型 <br>
+clientX 光标相对于该网页的水平位置 （当前可见区域） <br>
+clientY 光标相对于该网页的水平位置</p>
+
+<p>1.3.2pageX  clientX  screenX 区别 <br>
+ screen X   screenY <br>
+ 是以我们的电脑屏幕 为基准点   测量 </p>
+
+<p>pageX  pageY <br>
+以我们的  文档   （绝对定位）  的基准点 对齐 <br>
+   ie678 不认识 <br>
+clientX   clientY <br>
+以 可视区域 为基准点   类似于    固定定位 <br>
+1.4常用事件 <br>
+onmouseover      onmouseout   onclick <br>
+onmousemove    当鼠标移动的时候    就是说，鼠标移动一像素就会执行的事件 <br>
+div.onmousemove = function() { 语句 } <br>
+当鼠标再div 身上移动的时候，就会执行。 <br>
+得到在某个盒子内的坐标： </p>
+
+<p>div.onmouseover      和    div.onmousemove   区别 <br>
+      他们相同点   都是 经过  div 才会触发  <br>
+      div.onmouseover    只触发一次  <br>
+      div.onmousemove   每移动一像素，就会触发一次 </p>
+
+<p>onmouseup       当鼠标弹起 <br>
+   onmousedown     当鼠标按下的时候 <br>
+   1.拖动 原理 ==   鼠标按下  接着 移动鼠标 。  <br>
+   bar.onmousedown = function(){ <br>
+            document.onmousemove = function(){  <br>
+            } <br>
+} <br>
+2.当我们按下鼠标的时候，就要记录当前 鼠标 的位置 - 大盒子的位置  <br>
+ 算出  bar  当前 在  大盒子内的距离 。 <br>
+1.4.1防止选择拖动 <br>
+我们知道 按下鼠标然后拖拽可以选择文字 的。  <br>
+清除选中的内容  <br>
+window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();</p></div></body></html>
